@@ -1,0 +1,4312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login / Registration</title>
+
+
+    <style>
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            padding: 96px 20px;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #dff9ec 0%,
+                    #eef8f2 35%,
+                    #f7faf8 70%,
+                    #dcf8ed 100%
+                );
+
+            color: #111827;
+
+        }
+
+
+
+        /* =====================================================
+           MAIN CARD
+        ===================================================== */
+
+        .login-card {
+
+            width: 600px;
+
+            max-width:
+                calc(100vw - 40px);
+
+            max-height:
+                calc(100vh - 192px);
+
+            background:
+                white;
+
+            border:
+                2px solid #27364a;
+
+            border-radius:
+                20px;
+
+            padding:
+                24px 34px;
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.05);
+
+            position:
+                relative;
+
+        }
+
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            padding-bottom:
+                14px;
+
+            border-bottom:
+                1px solid #e8ecea;
+
+        }
+
+
+        .header h1 {
+
+            font-size:
+                32px;
+
+            font-weight:
+                700;
+
+            color:
+                #111827;
+
+        }
+
+
+
+        /* =====================================================
+           ROLE SELECTOR
+        ===================================================== */
+
+        .role-container {
+
+            position:
+                relative;
+
+        }
+
+
+        .role-button {
+
+            min-width:
+                165px;
+
+            height:
+                48px;
+
+            padding:
+                0 16px;
+
+            border:
+                2px solid #65e0b5;
+
+            border-radius:
+                13px;
+
+            background:
+                #f0f8f2;
+
+            color:
+                #073f36;
+
+            font-size:
+                18px;
+
+            font-weight:
+                600;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                10px;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .role-button:hover {
+
+            background:
+                #e8f7ee;
+
+        }
+
+
+        .role-button.active {
+
+            box-shadow:
+                0 0 0 3px
+                rgba(85, 218, 170, 0.15);
+
+        }
+
+
+        .role-left {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+        }
+
+
+        .role-icon {
+
+            width:
+                22px;
+
+            height:
+                22px;
+
+            stroke:
+                #008f69;
+
+        }
+
+
+        .arrow {
+
+            width:
+                11px;
+
+            height:
+                11px;
+
+            border-right:
+                2px solid #008f69;
+
+            border-bottom:
+                2px solid #008f69;
+
+            transform:
+                rotate(45deg);
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .role-button.active .arrow {
+
+            transform:
+                rotate(225deg);
+
+            margin-top:
+                5px;
+
+        }
+
+
+
+        /* =====================================================
+           ROLE DROPDOWN
+        ===================================================== */
+
+        .role-menu {
+
+            position:
+                absolute;
+
+            top:
+                calc(100% + 10px);
+
+            right:
+                0;
+
+            width:
+                400px;
+
+            background:
+                white;
+
+            border:
+                2px solid #71e4bb;
+
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 20px 35px
+                rgba(0, 0, 0, 0.13);
+
+            z-index:
+                100;
+
+            display:
+                none;
+
+        }
+
+
+        .role-menu.show {
+
+            display:
+                block;
+
+        }
+
+
+        .menu-title {
+
+            padding:
+                18px 20px;
+
+            border-bottom:
+                1px solid #b8efd9;
+
+            font-size:
+                16px;
+
+            letter-spacing:
+                1px;
+
+            color:
+                #00866a;
+
+        }
+
+
+        .role-option {
+
+            min-height:
+                78px;
+
+            padding:
+                13px 20px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                14px;
+
+            cursor:
+                pointer;
+
+            transition:
+                background 0.2s ease;
+
+        }
+
+
+        .role-option:hover {
+
+            background:
+                #f0faf5;
+
+        }
+
+
+        .role-option.selected {
+
+            background:
+                #e9faf2;
+
+        }
+
+
+        .option-icon {
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border-radius:
+                11px;
+
+            background:
+                #f1f4f5;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-shrink:
+                0;
+
+        }
+
+
+        .role-option.selected
+        .option-icon {
+
+            background:
+                #b9f5df;
+
+        }
+
+
+        .option-icon svg {
+
+            width:
+                24px;
+
+            height:
+                24px;
+
+            stroke:
+                #008d68;
+
+        }
+
+
+        .option-name {
+
+            font-size:
+                19px;
+
+            color:
+                #111827;
+
+        }
+
+
+        .check {
+
+            margin-left:
+                auto;
+
+            font-size:
+                24px;
+
+            color:
+                #00986e;
+
+            opacity:
+                0;
+
+        }
+
+
+        .role-option.selected .check {
+
+            opacity:
+                1;
+
+        }
+
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form {
+
+            padding-top:
+                20px;
+
+        }
+
+
+        .form.hidden-form {
+
+            display:
+                none;
+
+        }
+
+
+        .field {
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .field-label {
+
+            display:
+                block;
+
+            margin-bottom:
+                6px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                0.5px;
+
+            color:
+                #173c3c;
+
+        }
+
+
+        .input-wrapper {
+
+            position:
+                relative;
+
+        }
+
+
+        .input {
+
+            width:
+                100%;
+
+            height:
+                48px;
+
+            padding:
+                0 50px 0 16px;
+
+            border:
+                2px solid #9ceccf;
+
+            border-radius:
+                13px;
+
+            background:
+                #f1f7f2;
+
+            font-size:
+                16px;
+
+            color:
+                #1f2937;
+
+            outline:
+                none;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .input:focus {
+
+            border-color:
+                #24c996;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(36, 201, 150, 0.12);
+
+        }
+
+
+        .input::placeholder {
+
+            color:
+                #99a8ba;
+
+        }
+
+
+        .input.valid {
+
+            border-color:
+                #39bd8e;
+
+        }
+
+
+        .input.invalid {
+
+            border-color:
+                #e05d5d;
+
+        }
+
+
+        .input-icon {
+
+            position:
+                absolute;
+
+            right:
+                16px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            width:
+                22px;
+
+            height:
+                22px;
+
+            stroke:
+                #6e7c90;
+
+            pointer-events:
+                none;
+
+        }
+
+
+        .helper-text {
+
+            margin-top:
+                5px;
+
+            font-size:
+                12px;
+
+            color:
+                #6c7b8d;
+
+        }
+
+
+        /* =====================================================
+           DON'T HAVE FARMER ID LINK
+        ===================================================== */
+
+        .farmer-id-help {
+
+            display:
+                none;
+
+            margin-top:
+                5px;
+
+            padding:
+                0;
+
+            border:
+                none;
+
+            background:
+                none;
+
+            color:
+                #008f68;
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            text-align:
+                left;
+
+        }
+
+
+        .farmer-id-help:hover {
+
+            text-decoration:
+                underline;
+
+        }
+
+
+        .farmer-id-help.show {
+
+            display:
+                block;
+
+        }
+
+
+
+        /* =====================================================
+           ERROR
+        ===================================================== */
+
+        .error-text {
+
+            margin-top:
+                5px;
+
+            font-size:
+                12px;
+
+            color:
+                #d64545;
+
+            display:
+                none;
+
+        }
+
+
+        .error-text.show {
+
+            display:
+                block;
+
+        }
+
+
+
+        /* =====================================================
+           PASSWORD
+        ===================================================== */
+
+        .password-toggle {
+
+            position:
+                absolute;
+
+            right:
+                14px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            border:
+                none;
+
+            background:
+                none;
+
+            cursor:
+                pointer;
+
+            padding:
+                4px;
+
+        }
+
+
+        .password-toggle svg {
+
+            width:
+                23px;
+
+            height:
+                23px;
+
+            stroke:
+                #6e7c90;
+
+        }
+
+
+
+        /* =====================================================
+           PASSWORD RULES
+        ===================================================== */
+
+        .password-rules {
+
+            margin-top:
+                5px;
+
+            padding:
+                7px 10px;
+
+            background:
+                #f5faf7;
+
+            border-radius:
+                8px;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.45;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            column-gap:
+                12px;
+
+        }
+
+
+        .rule.valid {
+
+            color:
+                #008f68;
+
+        }
+
+
+        .rule.invalid {
+
+            color:
+                #69788a;
+
+        }
+
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .login-button {
+
+            width:
+                100%;
+
+            height:
+                52px;
+
+            border:
+                none;
+
+            border-radius:
+                14px;
+
+            background:
+                #00a373;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            box-shadow:
+                0 7px 12px
+                rgba(0, 150, 105, 0.16);
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .login-button:hover {
+
+            background:
+                #008d65;
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+
+        /* =====================================================
+           BOTTOM LINKS
+        ===================================================== */
+
+        .forgot {
+
+            display:
+                block;
+
+            text-align:
+                center;
+
+            margin-top:
+                17px;
+
+            font-size:
+                15px;
+
+            font-weight:
+                600;
+
+            color:
+                #102f4d;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        .forgot:hover {
+
+            text-decoration:
+                underline;
+
+        }
+
+
+        .switch-mode {
+
+            text-align:
+                center;
+
+            margin-top:
+                9px;
+
+            font-size:
+                14px;
+
+            color:
+                #68788c;
+
+        }
+
+
+        .switch-mode button {
+
+            border:
+                none;
+
+            background:
+                none;
+
+            color:
+                #008f68;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .switch-mode button:hover {
+
+            text-decoration:
+                underline;
+
+        }
+
+
+
+        /* =====================================================
+           HIDDEN
+        ===================================================== */
+
+        .hidden {
+
+            display:
+                none !important;
+
+        }
+
+
+
+        /* =====================================================
+           FARMER ID MODAL OVERLAY
+        ===================================================== */
+
+        .farmer-modal-overlay {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            background:
+                rgba(15, 31, 40, 0.42);
+
+            backdrop-filter:
+                blur(3px);
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            z-index:
+                1000;
+
+            padding:
+                20px;
+
+        }
+
+
+        .farmer-modal-overlay.show {
+
+            display:
+                flex;
+
+        }
+
+
+        .farmer-modal {
+
+            width:
+                520px;
+
+            max-width:
+                100%;
+
+            background:
+                white;
+
+            border:
+                2px solid #27364a;
+
+            border-radius:
+                20px;
+
+            padding:
+                28px 30px;
+
+            box-shadow:
+                0 25px 60px
+                rgba(0, 0, 0, 0.20);
+
+            position:
+                relative;
+
+        }
+
+
+        .modal-close {
+
+            position:
+                absolute;
+
+            right:
+                18px;
+
+            top:
+                15px;
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border:
+                none;
+
+            background:
+                #f1f5f3;
+
+            border-radius:
+                50%;
+
+            font-size:
+                22px;
+
+            line-height:
+                1;
+
+            color:
+                #526274;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .modal-close:hover {
+
+            background:
+                #e5efeb;
+
+        }
+
+
+        .modal-title {
+
+            font-size:
+                27px;
+
+            font-weight:
+                700;
+
+            color:
+                #111827;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .modal-description {
+
+            font-size:
+                14px;
+
+            line-height:
+                1.5;
+
+            color:
+                #68788c;
+
+            margin-bottom:
+                22px;
+
+        }
+
+
+        .state-label {
+
+            display:
+                block;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            color:
+                #173c3c;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .state-select {
+
+            width:
+                100%;
+
+            height:
+                50px;
+
+            padding:
+                0 14px;
+
+            border:
+                2px solid #9ceccf;
+
+            border-radius:
+                12px;
+
+            background:
+                #f1f7f2;
+
+            font-size:
+                15px;
+
+            color:
+                #27364a;
+
+            outline:
+                none;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .state-select:focus {
+
+            border-color:
+                #24c996;
+
+        }
+
+
+        .state-portal {
+
+            margin-top:
+                18px;
+
+            padding:
+                15px;
+
+            background:
+                #f1faf5;
+
+            border:
+                1px solid #b8efd9;
+
+            border-radius:
+                12px;
+
+            display:
+                none;
+
+        }
+
+
+        .state-portal.show {
+
+            display:
+                block;
+
+        }
+
+
+        .portal-status {
+
+            font-size:
+                12px;
+
+            color:
+                #68788c;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .portal-state {
+
+            font-size:
+                16px;
+
+            font-weight:
+                700;
+
+            color:
+                #173c3c;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .portal-button {
+
+            display:
+                block;
+
+            width:
+                100%;
+
+            padding:
+                12px 15px;
+
+            border-radius:
+                10px;
+
+            background:
+                #00a373;
+
+            color:
+                white;
+
+            text-align:
+                center;
+
+            text-decoration:
+                none;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .portal-button:hover {
+
+            background:
+                #008d65;
+
+        }
+
+
+        .portal-note {
+
+            margin-top:
+                9px;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.4;
+
+            color:
+                #68788c;
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            body {
+
+                padding:
+                    20px 15px;
+
+            }
+
+
+            .login-card {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                max-height:
+                    calc(100vh - 40px);
+
+                padding:
+                    20px 22px;
+
+            }
+
+
+            .header h1 {
+
+                font-size:
+                    28px;
+
+            }
+
+
+            .role-button {
+
+                min-width:
+                    140px;
+
+                height:
+                    44px;
+
+                font-size:
+                    16px;
+
+            }
+
+
+            .input {
+
+                height:
+                    46px;
+
+            }
+
+
+            .login-button {
+
+                height:
+                    50px;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 480px) {
+
+            .login-card {
+
+                width:
+                    calc(100vw - 20px);
+
+                max-height:
+                    calc(100vh - 20px);
+
+                padding:
+                    18px 16px;
+
+            }
+
+
+            .header h1 {
+
+                font-size:
+                    25px;
+
+            }
+
+
+            .role-button {
+
+                min-width:
+                    120px;
+
+            }
+
+
+            .role-menu {
+
+                width:
+                    100%;
+
+            }
+
+
+            .password-rules {
+
+                font-size:
+                    10px;
+
+            }
+
+
+            .farmer-modal {
+
+                padding:
+                    24px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MAIN LOGIN / REGISTRATION CARD
+    ====================================================== -->
+
+    <div class="login-card">
+
+
+        <!-- HEADER -->
+
+        <div class="header">
+
+
+            <h1 id="pageTitle">
+                Log in
+            </h1>
+
+
+            <!-- ROLE SELECTOR -->
+
+            <div class="role-container">
+
+
+                <button
+                    type="button"
+                    class="role-button"
+                    id="roleButton"
+                >
+
+                    <span class="role-left">
+
+
+                        <svg
+                            class="role-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <circle
+                                cx="12"
+                                cy="7"
+                                r="4"
+                            ></circle>
+
+                            <path
+                                d="M5 21c0-4 3-7 7-7s7 3 7 7"
+                            ></path>
+
+                        </svg>
+
+
+                        <span id="selectedRole">
+                            Select
+                        </span>
+
+                    </span>
+
+
+                    <span class="arrow"></span>
+
+                </button>
+
+
+
+                <!-- ROLE MENU -->
+
+                <div
+                    class="role-menu"
+                    id="roleMenu"
+                >
+
+
+                    <div class="menu-title">
+                        SELECT ROLE
+                    </div>
+
+
+
+                    <!-- FARMER -->
+
+                    <div
+                        class="role-option"
+                        data-role="farmer"
+                    >
+
+                        <div class="option-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <circle
+                                    cx="12"
+                                    cy="7"
+                                    r="4"
+                                ></circle>
+
+                                <path
+                                    d="M5 21c0-4 3-7 7-7s7 3 7 7"
+                                ></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="option-name">
+                            Farmer
+                        </span>
+
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- BUYER -->
+
+                    <div
+                        class="role-option"
+                        data-role="buyer"
+                    >
+
+                        <div class="option-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="4"
+                                    y="7"
+                                    width="16"
+                                    height="13"
+                                    rx="2"
+                                ></rect>
+
+                                <path
+                                    d="M8 7V5h8v2"
+                                ></path>
+
+                                <path
+                                    d="M9 12h6"
+                                ></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="option-name">
+                            Buyer (Industry)
+                        </span>
+
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- SELLER -->
+
+                    <div
+                        class="role-option"
+                        data-role="seller"
+                    >
+
+                        <div class="option-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M3 10h18"
+                                ></path>
+
+                                <path
+                                    d="M5 10v10h14V10"
+                                ></path>
+
+                                <path
+                                    d="M4 10l2-6h12l2 6"
+                                ></path>
+
+                                <path
+                                    d="M9 20v-6h6v6"
+                                ></path>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="option-name">
+                            Seller (Industry)
+                        </span>
+
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FORM
+        ====================================================== -->
+
+        <form
+            class="form"
+            id="form"
+            novalidate
+        >
+
+
+            <!-- FARMER / GST ID -->
+
+            <div class="field">
+
+
+                <label
+                    class="field-label"
+                    id="idLabel"
+                    for="userId"
+                >
+                    ID
+                </label>
+
+
+                <div class="input-wrapper">
+
+
+                    <input
+                        type="text"
+                        id="userId"
+                        class="input"
+                        placeholder="Select a role first"
+                        maxlength="15"
+                        autocomplete="username"
+                    >
+
+
+                    <svg
+                        class="input-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                        ></circle>
+
+                        <path
+                            d="M5 21c0-4 3-7 7-7s7 3 7 7"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <p
+                    class="helper-text"
+                    id="idHelper"
+                >
+                    Select a role first
+                </p>
+
+
+                <!-- NEW FARMER ID HELP -->
+
+                <button
+                    type="button"
+                    class="farmer-id-help"
+                    id="farmerIdHelp"
+                >
+                    Don't have a Farmer ID?
+                </button>
+
+
+                <p
+                    class="error-text"
+                    id="idError"
+                ></p>
+
+
+            </div>
+
+
+
+            <!-- CONTACT NUMBER -->
+
+            <div
+                class="field hidden"
+                id="contactField"
+            >
+
+                <label
+                    class="field-label"
+                    for="contact"
+                >
+                    CONTACT NUMBER *
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="tel"
+                        id="contact"
+                        class="input"
+                        placeholder="Enter your contact number"
+                        autocomplete="tel"
+                    >
+
+                </div>
+
+
+                <p
+                    class="error-text"
+                    id="contactError"
+                ></p>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div
+                class="field hidden"
+                id="emailField"
+            >
+
+                <label
+                    class="field-label"
+                    id="emailLabel"
+                    for="email"
+                >
+                    EMAIL ID
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="email"
+                        id="email"
+                        class="input"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                    >
+
+                </div>
+
+
+                <p
+                    class="helper-text"
+                    id="emailHelper"
+                >
+                    Optional for farmers
+                </p>
+
+
+                <p
+                    class="error-text"
+                    id="emailError"
+                ></p>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="field">
+
+
+                <label
+                    class="field-label"
+                    for="password"
+                >
+                    PASSWORD
+                </label>
+
+
+                <div class="input-wrapper">
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="input"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="passwordToggle"
+                        aria-label="Show password"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <path
+                                d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
+                            ></path>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="3"
+                            ></circle>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- PASSWORD RULES -->
+
+                <div
+                    class="password-rules hidden"
+                    id="passwordRules"
+                >
+
+                    <span
+                        class="rule"
+                        id="ruleLength"
+                    >
+                        ○ At least 8 characters
+                    </span>
+
+
+                    <span
+                        class="rule"
+                        id="ruleUpper"
+                    >
+                        ○ At least one uppercase letter
+                    </span>
+
+
+                    <span
+                        class="rule"
+                        id="ruleLower"
+                    >
+                        ○ At least one lowercase letter
+                    </span>
+
+
+                    <span
+                        class="rule"
+                        id="ruleDigit"
+                    >
+                        ○ At least one digit
+                    </span>
+
+
+                    <span
+                        class="rule"
+                        id="ruleSpecial"
+                    >
+                        ○ At least one special character
+                    </span>
+
+                </div>
+
+
+                <p
+                    class="error-text"
+                    id="passwordError"
+                ></p>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="login-button"
+                id="submitButton"
+            >
+                Login
+            </button>
+
+
+        </form>
+
+
+
+        <!-- FORGOT PASSWORD -->
+
+        <a
+            href="#"
+            class="forgot"
+            id="forgotPassword"
+        >
+            Forgot your password?
+        </a>
+
+
+
+        <!-- LOGIN / REGISTER -->
+
+        <div class="switch-mode">
+
+            <span id="switchText">
+                Don't have an account?
+            </span>
+
+
+            <button
+                type="button"
+                id="switchButton"
+            >
+                Register
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FARMER ID MODAL
+    ====================================================== -->
+
+    <div
+        class="farmer-modal-overlay"
+        id="farmerModal"
+    >
+
+
+        <div class="farmer-modal">
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+            >
+                ×
+            </button>
+
+
+            <h2 class="modal-title">
+                Get your Farmer ID
+            </h2>
+
+
+            <p class="modal-description">
+                Select your state below. You will be directed
+                to the appropriate official AgriStack Farmer
+                Registry portal or the official AgriStack
+                portal if a dedicated public state portal is
+                not currently available.
+            </p>
+
+
+            <label
+                class="state-label"
+                for="stateSelect"
+            >
+                SELECT STATE
+            </label>
+
+
+            <select
+                id="stateSelect"
+                class="state-select"
+            >
+
+                <option value="">
+                    Select your state
+                </option>
+
+                <option value="Andhra Pradesh">
+                    Andhra Pradesh
+                </option>
+
+                <option value="Arunachal Pradesh">
+                    Arunachal Pradesh
+                </option>
+
+                <option value="Assam">
+                    Assam
+                </option>
+
+                <option value="Bihar">
+                    Bihar
+                </option>
+
+                <option value="Chhattisgarh">
+                    Chhattisgarh
+                </option>
+
+                <option value="Goa">
+                    Goa
+                </option>
+
+                <option value="Gujarat">
+                    Gujarat
+                </option>
+
+                <option value="Haryana">
+                    Haryana
+                </option>
+
+                <option value="Himachal Pradesh">
+                    Himachal Pradesh
+                </option>
+
+                <option value="Jharkhand">
+                    Jharkhand
+                </option>
+
+                <option value="Karnataka">
+                    Karnataka
+                </option>
+
+                <option value="Kerala">
+                    Kerala
+                </option>
+
+                <option value="Madhya Pradesh">
+                    Madhya Pradesh
+                </option>
+
+                <option value="Maharashtra">
+                    Maharashtra
+                </option>
+
+                <option value="Manipur">
+                    Manipur
+                </option>
+
+                <option value="Meghalaya">
+                    Meghalaya
+                </option>
+
+                <option value="Mizoram">
+                    Mizoram
+                </option>
+
+                <option value="Nagaland">
+                    Nagaland
+                </option>
+
+                <option value="Odisha">
+                    Odisha
+                </option>
+
+                <option value="Punjab">
+                    Punjab
+                </option>
+
+                <option value="Rajasthan">
+                    Rajasthan
+                </option>
+
+                <option value="Sikkim">
+                    Sikkim
+                </option>
+
+                <option value="Tamil Nadu">
+                    Tamil Nadu
+                </option>
+
+                <option value="Telangana">
+                    Telangana
+                </option>
+
+                <option value="Tripura">
+                    Tripura
+                </option>
+
+                <option value="Uttar Pradesh">
+                    Uttar Pradesh
+                </option>
+
+                <option value="Uttarakhand">
+                    Uttarakhand
+                </option>
+
+                <option value="West Bengal">
+                    West Bengal
+                </option>
+
+            </select>
+
+
+
+            <!-- PORTAL RESULT -->
+
+            <div
+                class="state-portal"
+                id="statePortal"
+            >
+
+                <div class="portal-status">
+                    FARMER REGISTRY PORTAL
+                </div>
+
+
+                <div
+                    class="portal-state"
+                    id="portalState"
+                ></div>
+
+
+                <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portal-button"
+                    id="portalButton"
+                >
+                    Open AgriStack Portal
+                </a>
+
+
+                <p
+                    class="portal-note"
+                    id="portalNote"
+                ></p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const pageTitle =
+            document.getElementById(
+                "pageTitle"
+            );
+
+
+        const roleButton =
+            document.getElementById(
+                "roleButton"
+            );
+
+
+        const roleMenu =
+            document.getElementById(
+                "roleMenu"
+            );
+
+
+        const selectedRoleText =
+            document.getElementById(
+                "selectedRole"
+            );
+
+
+        const roleOptions =
+            document.querySelectorAll(
+                ".role-option"
+            );
+
+
+        const form =
+            document.getElementById(
+                "form"
+            );
+
+
+        const idLabel =
+            document.getElementById(
+                "idLabel"
+            );
+
+
+        const userId =
+            document.getElementById(
+                "userId"
+            );
+
+
+        const idHelper =
+            document.getElementById(
+                "idHelper"
+            );
+
+
+        const idError =
+            document.getElementById(
+                "idError"
+            );
+
+
+        const farmerIdHelp =
+            document.getElementById(
+                "farmerIdHelp"
+            );
+
+
+        const contactField =
+            document.getElementById(
+                "contactField"
+            );
+
+
+        const contact =
+            document.getElementById(
+                "contact"
+            );
+
+
+        const contactError =
+            document.getElementById(
+                "contactError"
+            );
+
+
+        const emailField =
+            document.getElementById(
+                "emailField"
+            );
+
+
+        const email =
+            document.getElementById(
+                "email"
+            );
+
+
+        const emailLabel =
+            document.getElementById(
+                "emailLabel"
+            );
+
+
+        const emailHelper =
+            document.getElementById(
+                "emailHelper"
+            );
+
+
+        const emailError =
+            document.getElementById(
+                "emailError"
+            );
+
+
+        const password =
+            document.getElementById(
+                "password"
+            );
+
+
+        const passwordError =
+            document.getElementById(
+                "passwordError"
+            );
+
+
+        const passwordRules =
+            document.getElementById(
+                "passwordRules"
+            );
+
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+        const forgotPassword =
+            document.getElementById(
+                "forgotPassword"
+            );
+
+
+        const switchText =
+            document.getElementById(
+                "switchText"
+            );
+
+
+        const switchButton =
+            document.getElementById(
+                "switchButton"
+            );
+
+
+        const passwordToggle =
+            document.getElementById(
+                "passwordToggle"
+            );
+
+
+
+        /* =====================================================
+           MODAL ELEMENTS
+        ===================================================== */
+
+        const farmerModal =
+            document.getElementById(
+                "farmerModal"
+            );
+
+
+        const modalClose =
+            document.getElementById(
+                "modalClose"
+            );
+
+
+        const stateSelect =
+            document.getElementById(
+                "stateSelect"
+            );
+
+
+        const statePortal =
+            document.getElementById(
+                "statePortal"
+            );
+
+
+        const portalState =
+            document.getElementById(
+                "portalState"
+            );
+
+
+        const portalButton =
+            document.getElementById(
+                "portalButton"
+            );
+
+
+        const portalNote =
+            document.getElementById(
+                "portalNote"
+            );
+
+
+
+        /* =====================================================
+           STATE
+        ===================================================== */
+
+        let currentRole =
+            null;
+
+
+        let isRegistration =
+            false;
+
+
+
+        /* =====================================================
+           AGRISTACK PORTALS
+           
+           Only verified/current portal routes are used here.
+           States without a verified dedicated public portal
+           fall back to the official national AgriStack portal.
+        ===================================================== */
+
+        const agriStackPortals = {
+
+
+            "Andhra Pradesh":
+                "https://apfr.agristack.gov.in/",
+
+
+            "Arunachal Pradesh":
+                "https://agristack.gov.in/",
+
+
+            "Assam":
+                "https://asfr.agristack.gov.in/",
+
+
+            "Bihar":
+                "https://bhfr.agristack.gov.in/",
+
+
+            "Chhattisgarh":
+                "https://cgfr.agristack.gov.in/",
+
+
+            "Goa":
+                "https://gafr.agristack.gov.in/",
+
+
+            "Gujarat":
+                "https://gjfr.agristack.gov.in/",
+
+
+            "Haryana":
+                "https://hrfr.agristack.gov.in/",
+
+
+            "Himachal Pradesh":
+                "https://hpfr.agristack.gov.in/",
+
+
+            "Jharkhand":
+                "https://jhdcs.agristack.gov.in/",
+
+
+            "Karnataka":
+                "https://fruits.karnataka.gov.in/",
+
+
+            "Kerala":
+                "https://klfr.agristack.gov.in/",
+
+
+            "Madhya Pradesh":
+                "https://mpfr.agristack.gov.in/",
+
+
+            "Maharashtra":
+                "https://mhfr.agristack.gov.in/",
+
+
+            "Manipur":
+                "https://agristack.gov.in/",
+
+
+            "Meghalaya":
+                "https://agristack.gov.in/",
+
+
+            "Mizoram":
+                "https://agristack.gov.in/",
+
+
+            "Nagaland":
+                "https://agristack.gov.in/",
+
+
+            "Odisha":
+                "https://odfr.agristack.gov.in/",
+
+
+            "Punjab":
+                "https://pbfr.agristack.gov.in/",
+
+
+            "Rajasthan":
+                "https://rjfrc.rajasthan.gov.in/",
+
+
+            "Sikkim":
+                "https://agristack.gov.in/",
+
+
+            "Tamil Nadu":
+                "https://tnfr.agristack.gov.in/",
+
+
+            "Telangana":
+                "https://tlfr.agristack.gov.in/",
+
+
+            "Tripura":
+                "https://trfr.agristack.gov.in/",
+
+
+            "Uttar Pradesh":
+                "https://upfr.agristack.gov.in/",
+
+
+            "Uttarakhand":
+                "https://ukfr.agristack.gov.in/",
+
+
+            "West Bengal":
+                "https://wbfr.agristack.gov.in/"
+
+        };
+
+
+
+        /* =====================================================
+           STATES USING NATIONAL FALLBACK
+        ===================================================== */
+
+        const nationalFallbackStates = [
+
+            "Arunachal Pradesh",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "Sikkim"
+
+        ];
+
+
+
+        /* =====================================================
+           ROLE DROPDOWN
+        ===================================================== */
+
+        roleButton.addEventListener(
+            "click",
+            function() {
+
+                roleMenu.classList.toggle(
+                    "show"
+                );
+
+                roleButton.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           ROLE SELECTION
+        ===================================================== */
+
+        roleOptions.forEach(
+            function(option) {
+
+                option.addEventListener(
+                    "click",
+                    function() {
+
+
+                        currentRole =
+                            option.dataset.role;
+
+
+                        /*
+                            Remove previous selection.
+                        */
+
+                        roleOptions.forEach(
+                            function(item) {
+
+                                item.classList.remove(
+                                    "selected"
+                                );
+
+                            }
+                        );
+
+
+                        /*
+                            Select current role.
+                        */
+
+                        option.classList.add(
+                            "selected"
+                        );
+
+
+                        /*
+                            Clear existing fields.
+                        */
+
+                        userId.value =
+                            "";
+
+                        contact.value =
+                            "";
+
+                        email.value =
+                            "";
+
+                        password.value =
+                            "";
+
+
+                        clearAllErrors();
+
+
+                        /*
+                            Update interface.
+                        */
+
+                        updateRoleUI();
+
+
+                        /*
+                            Close dropdown.
+                        */
+
+                        roleMenu.classList.remove(
+                            "show"
+                        );
+
+                        roleButton.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           UPDATE UI BASED ON ROLE
+        ===================================================== */
+
+        function updateRoleUI() {
+
+
+            /*
+                =================================================
+                NO ROLE
+                =================================================
+            */
+
+            if (
+                currentRole === null
+            ) {
+
+
+                selectedRoleText.textContent =
+                    "Select";
+
+
+                /*
+                    Registration:
+                    hide the entire form.
+                */
+
+                if (
+                    isRegistration
+                ) {
+
+                    form.classList.add(
+                        "hidden-form"
+                    );
+
+                }
+
+                else {
+
+                    form.classList.remove(
+                        "hidden-form"
+                    );
+
+                }
+
+
+                idLabel.textContent =
+                    "ID";
+
+
+                userId.placeholder =
+                    "Select a role first";
+
+
+                idHelper.textContent =
+                    "Select a role first";
+
+
+                farmerIdHelp.classList.remove(
+                    "show"
+                );
+
+
+                contactField.classList.add(
+                    "hidden"
+                );
+
+
+                emailField.classList.add(
+                    "hidden"
+                );
+
+
+                passwordRules.classList.add(
+                    "hidden"
+                );
+
+
+                forgotPassword.classList.toggle(
+                    "hidden",
+                    isRegistration
+                );
+
+
+                submitButton.textContent =
+                    isRegistration
+                        ? "Register"
+                        : "Login";
+
+
+                return;
+
+            }
+
+
+
+            /*
+                =================================================
+                ROLE SELECTED
+                =================================================
+            */
+
+            form.classList.remove(
+                "hidden-form"
+            );
+
+
+
+            /*
+                =================================================
+                FARMER
+                =================================================
+            */
+
+            if (
+                currentRole === "farmer"
+            ) {
+
+
+                selectedRoleText.textContent =
+                    "Farmer";
+
+
+                idLabel.textContent =
+                    "FARMER ID";
+
+
+                userId.placeholder =
+                    "Enter your 11-digit Farmer ID";
+
+
+                idHelper.textContent =
+                    "Enter your 11-digit government-issued Farmer ID";
+
+
+                userId.maxLength =
+                    11;
+
+
+                /*
+                    Show Farmer ID help.
+                */
+
+                farmerIdHelp.classList.add(
+                    "show"
+                );
+
+
+                if (
+                    isRegistration
+                ) {
+
+                    submitButton.textContent =
+                        "Register as Farmer";
+
+                }
+
+                else {
+
+                    submitButton.textContent =
+                        "Login as Farmer";
+
+                }
+
+
+                emailLabel.textContent =
+                    "EMAIL ID";
+
+
+                emailHelper.textContent =
+                    "Optional for farmers";
+
+            }
+
+
+
+            /*
+                =================================================
+                BUYER (INDUSTRY)
+                =================================================
+            */
+
+            else if (
+                currentRole === "buyer"
+            ) {
+
+
+                selectedRoleText.textContent =
+                    "Buyer (Industry)";
+
+
+                idLabel.textContent =
+                    "GST ID";
+
+
+                userId.placeholder =
+                    "Enter your 15-character GST ID";
+
+
+                idHelper.textContent =
+                    "Enter your 15-character GST identification number";
+
+
+                userId.maxLength =
+                    15;
+
+
+                /*
+                    Hide Farmer ID help.
+                */
+
+                farmerIdHelp.classList.remove(
+                    "show"
+                );
+
+
+                if (
+                    isRegistration
+                ) {
+
+                    submitButton.textContent =
+                        "Register as Buyer (Industry)";
+
+                }
+
+                else {
+
+                    submitButton.textContent =
+                        "Login as Buyer (Industry)";
+
+                }
+
+
+                emailLabel.textContent =
+                    "EMAIL ID *";
+
+
+                emailHelper.textContent =
+                    "Email is mandatory for Buyer (Industry)";
+
+            }
+
+
+
+            /*
+                =================================================
+                SELLER (INDUSTRY)
+                =================================================
+            */
+
+            else if (
+                currentRole === "seller"
+            ) {
+
+
+                selectedRoleText.textContent =
+                    "Seller (Industry)";
+
+
+                idLabel.textContent =
+                    "GST ID";
+
+
+                userId.placeholder =
+                    "Enter your 15-character GST ID";
+
+
+                idHelper.textContent =
+                    "Enter your 15-character GST identification number";
+
+
+                userId.maxLength =
+                    15;
+
+
+                /*
+                    Hide Farmer ID help.
+                */
+
+                farmerIdHelp.classList.remove(
+                    "show"
+                );
+
+
+                if (
+                    isRegistration
+                ) {
+
+                    submitButton.textContent =
+                        "Register as Seller (Industry)";
+
+                }
+
+                else {
+
+                    submitButton.textContent =
+                        "Login as Seller (Industry)";
+
+                }
+
+
+                emailLabel.textContent =
+                    "EMAIL ID *";
+
+
+                emailHelper.textContent =
+                    "Email is mandatory for Seller (Industry)";
+
+            }
+
+
+
+            /*
+                =================================================
+                REGISTRATION FIELDS
+                =================================================
+            */
+
+            if (
+                isRegistration
+            ) {
+
+
+                contactField.classList.remove(
+                    "hidden"
+                );
+
+
+                emailField.classList.remove(
+                    "hidden"
+                );
+
+
+                passwordRules.classList.remove(
+                    "hidden"
+                );
+
+
+                forgotPassword.classList.add(
+                    "hidden"
+                );
+
+            }
+
+            else {
+
+
+                contactField.classList.add(
+                    "hidden"
+                );
+
+
+                emailField.classList.add(
+                    "hidden"
+                );
+
+
+                passwordRules.classList.add(
+                    "hidden"
+                );
+
+
+                forgotPassword.classList.remove(
+                    "hidden"
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           FARMER ID HELP BUTTON
+        ===================================================== */
+
+        farmerIdHelp.addEventListener(
+            "click",
+            function() {
+
+                farmerModal.classList.add(
+                    "show"
+                );
+
+                stateSelect.value =
+                    "";
+
+                statePortal.classList.remove(
+                    "show"
+                );
+
+                portalState.textContent =
+                    "";
+
+                portalNote.textContent =
+                    "";
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CLOSE FARMER MODAL
+        ===================================================== */
+
+        modalClose.addEventListener(
+            "click",
+            function() {
+
+                farmerModal.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CLOSE MODAL BY CLICKING OUTSIDE
+        ===================================================== */
+
+        farmerModal.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    farmerModal
+                ) {
+
+                    farmerModal.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           STATE SELECTION
+        ===================================================== */
+
+        stateSelect.addEventListener(
+            "change",
+            function() {
+
+
+                const selectedState =
+                    stateSelect.value;
+
+
+
+                if (
+                    selectedState === ""
+                ) {
+
+                    statePortal.classList.remove(
+                        "show"
+                    );
+
+                    return;
+
+                }
+
+
+
+                const portal =
+                    agriStackPortals[
+                        selectedState
+                    ];
+
+
+
+                portalState.textContent =
+                    selectedState;
+
+
+
+                portalButton.href =
+                    portal;
+
+
+
+                /*
+                    States with no currently
+                    verified dedicated public
+                    portal use national AgriStack.
+                */
+
+                if (
+                    nationalFallbackStates.includes(
+                        selectedState
+                    )
+                ) {
+
+
+                    portalButton.textContent =
+                        "Open Official AgriStack Portal";
+
+
+                    portalNote.textContent =
+                        "A dedicated public state Farmer Registry portal could not be verified for this state at the moment. The official AgriStack portal is provided instead.";
+
+                }
+
+                else {
+
+
+                    portalButton.textContent =
+                        "Open " +
+                        selectedState +
+                        " Farmer Registry";
+
+
+                    portalNote.textContent =
+                        "You will be taken to the official state Farmer Registry / AgriStack portal.";
+
+                }
+
+
+
+                statePortal.classList.add(
+                    "show"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CLOSE ROLE DROPDOWN OUTSIDE CLICK
+        ===================================================== */
+
+        document.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    !event.target.closest(
+                        ".role-container"
+                    )
+                ) {
+
+                    roleMenu.classList.remove(
+                        "show"
+                    );
+
+                    roleButton.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           ID VALIDATION
+        ===================================================== */
+
+        userId.addEventListener(
+            "input",
+            function() {
+
+
+                if (
+                    currentRole === null
+                ) {
+
+                    userId.value =
+                        "";
+
+                    return;
+
+                }
+
+
+                let value =
+                    userId.value;
+
+
+
+                /*
+                    FARMER
+                */
+
+                if (
+                    currentRole === "farmer"
+                ) {
+
+
+                    value =
+                        value.replace(
+                            /\D/g,
+                            ""
+                        );
+
+
+                    userId.value =
+                        value;
+
+
+
+                    if (
+                        value.length === 0
+                    ) {
+
+                        clearValidation(
+                            userId,
+                            idError
+                        );
+
+                    }
+
+                    else if (
+                        value.length === 11
+                    ) {
+
+                        setValid(
+                            userId,
+                            idError
+                        );
+
+                    }
+
+                    else {
+
+                        setInvalid(
+                            userId,
+                            idError,
+                            "Farmer ID must contain exactly 11 digits."
+                        );
+
+                    }
+
+                }
+
+
+
+                /*
+                    BUYER / SELLER
+                */
+
+                else {
+
+
+                    value =
+                        value
+                        .replace(
+                            /[^a-zA-Z0-9]/g,
+                            ""
+                        )
+                        .toUpperCase();
+
+
+                    userId.value =
+                        value;
+
+
+
+                    if (
+                        value.length === 0
+                    ) {
+
+                        clearValidation(
+                            userId,
+                            idError
+                        );
+
+                    }
+
+                    else if (
+                        value.length === 15
+                    ) {
+
+                        setValid(
+                            userId,
+                            idError
+                        );
+
+                    }
+
+                    else {
+
+                        setInvalid(
+                            userId,
+                            idError,
+                            "GST ID must contain exactly 15 alphanumeric characters."
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CONTACT VALIDATION
+        ===================================================== */
+
+        contact.addEventListener(
+            "input",
+            function() {
+
+
+                const digits =
+                    contact.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                if (
+                    contact.value.trim() === ""
+                ) {
+
+                    clearValidation(
+                        contact,
+                        contactError
+                    );
+
+                }
+
+                else if (
+                    digits.length >= 7
+                ) {
+
+                    setValid(
+                        contact,
+                        contactError
+                    );
+
+                }
+
+                else {
+
+                    setInvalid(
+                        contact,
+                        contactError,
+                        "Please enter a valid contact number."
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           EMAIL VALIDATION
+        ===================================================== */
+
+        email.addEventListener(
+            "input",
+            function() {
+
+
+                const value =
+                    email.value.trim();
+
+
+                if (
+                    currentRole === "farmer" &&
+                    value === ""
+                ) {
+
+                    clearValidation(
+                        email,
+                        emailError
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    value === ""
+                ) {
+
+                    setInvalid(
+                        email,
+                        emailError,
+                        "Email address is required."
+                    );
+
+                    return;
+
+                }
+
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    emailPattern.test(
+                        value
+                    )
+                ) {
+
+                    setValid(
+                        email,
+                        emailError
+                    );
+
+                }
+
+                else {
+
+                    setInvalid(
+                        email,
+                        emailError,
+                        "Please enter a valid email address."
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           PASSWORD VALIDATION
+        ===================================================== */
+
+        password.addEventListener(
+            "input",
+            function() {
+
+
+                if (
+                    !isRegistration
+                ) {
+
+                    return;
+
+                }
+
+
+                updatePasswordRules();
+
+            }
+        );
+
+
+
+        function updatePasswordRules() {
+
+
+            const value =
+                password.value;
+
+
+            const lengthOK =
+                value.length >= 8;
+
+
+            const upperOK =
+                /[A-Z]/.test(
+                    value
+                );
+
+
+            const lowerOK =
+                /[a-z]/.test(
+                    value
+                );
+
+
+            const digitOK =
+                /\d/.test(
+                    value
+                );
+
+
+            const specialOK =
+                /[^A-Za-z0-9]/.test(
+                    value
+                );
+
+
+            updateRule(
+                "ruleLength",
+                lengthOK,
+                "At least 8 characters"
+            );
+
+
+            updateRule(
+                "ruleUpper",
+                upperOK,
+                "At least one uppercase letter"
+            );
+
+
+            updateRule(
+                "ruleLower",
+                lowerOK,
+                "At least one lowercase letter"
+            );
+
+
+            updateRule(
+                "ruleDigit",
+                digitOK,
+                "At least one digit"
+            );
+
+
+            updateRule(
+                "ruleSpecial",
+                specialOK,
+                "At least one special character"
+            );
+
+        }
+
+
+
+        /* =====================================================
+           PASSWORD RULE
+        ===================================================== */
+
+        function updateRule(
+            elementId,
+            valid,
+            text
+        ) {
+
+
+            const element =
+                document.getElementById(
+                    elementId
+                );
+
+
+            if (
+                valid
+            ) {
+
+                element.classList.add(
+                    "valid"
+                );
+
+                element.classList.remove(
+                    "invalid"
+                );
+
+                element.textContent =
+                    "✓ " +
+                    text;
+
+            }
+
+            else {
+
+                element.classList.add(
+                    "invalid"
+                );
+
+                element.classList.remove(
+                    "valid"
+                );
+
+                element.textContent =
+                    "○ " +
+                    text;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SHOW / HIDE PASSWORD
+        ===================================================== */
+
+        passwordToggle.addEventListener(
+            "click",
+            function() {
+
+
+                if (
+                    password.type ===
+                    "password"
+                ) {
+
+
+                    password.type =
+                        "text";
+
+
+                    passwordToggle.setAttribute(
+                        "aria-label",
+                        "Hide password"
+                    );
+
+                }
+
+                else {
+
+
+                    password.type =
+                        "password";
+
+
+                    passwordToggle.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           LOGIN / REGISTRATION SWITCH
+        ===================================================== */
+
+        switchButton.addEventListener(
+            "click",
+            function() {
+
+
+                isRegistration =
+                    !isRegistration;
+
+
+
+                if (
+                    isRegistration
+                ) {
+
+
+                    pageTitle.textContent =
+                        "Register";
+
+
+                    switchText.textContent =
+                        "Already have an account?";
+
+
+                    switchButton.textContent =
+                        "Log in";
+
+                }
+
+                else {
+
+
+                    pageTitle.textContent =
+                        "Log in";
+
+
+                    switchText.textContent =
+                        "Don't have an account?";
+
+
+                    switchButton.textContent =
+                        "Register";
+
+                }
+
+
+
+                /*
+                    Clear form.
+                */
+
+                userId.value =
+                    "";
+
+                contact.value =
+                    "";
+
+                email.value =
+                    "";
+
+                password.value =
+                    "";
+
+
+                clearAllErrors();
+
+
+                updateRoleUI();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           FORM SUBMISSION
+        ===================================================== */
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+
+                event.preventDefault();
+
+
+                let valid =
+                    true;
+
+
+
+                /*
+                    Role must be selected.
+                */
+
+                if (
+                    currentRole === null
+                ) {
+
+                    alert(
+                        "Please select a role first."
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* =================================================
+                   ID
+                ================================================= */
+
+                if (
+                    currentRole === "farmer"
+                ) {
+
+
+                    if (
+                        !/^\d{11}$/.test(
+                            userId.value
+                        )
+                    ) {
+
+
+                        setInvalid(
+                            userId,
+                            idError,
+                            "Farmer ID must contain exactly 11 digits."
+                        );
+
+
+                        valid =
+                            false;
+
+                    }
+
+                }
+
+                else {
+
+
+                    if (
+                        !/^[A-Za-z0-9]{15}$/.test(
+                            userId.value
+                        )
+                    ) {
+
+
+                        setInvalid(
+                            userId,
+                            idError,
+                            "GST ID must contain exactly 15 alphanumeric characters."
+                        );
+
+
+                        valid =
+                            false;
+
+                    }
+
+                }
+
+
+
+                /* =================================================
+                   REGISTRATION
+                ================================================= */
+
+                if (
+                    isRegistration
+                ) {
+
+
+                    /*
+                        CONTACT
+                    */
+
+                    const contactDigits =
+                        contact.value.replace(
+                            /\D/g,
+                            ""
+                        );
+
+
+                    if (
+                        contactDigits.length <
+                        7
+                    ) {
+
+
+                        setInvalid(
+                            contact,
+                            contactError,
+                            "Please enter a valid contact number."
+                        );
+
+
+                        valid =
+                            false;
+
+                    }
+
+
+
+                    /*
+                        EMAIL
+                    */
+
+                    const emailValue =
+                        email.value.trim();
+
+
+                    const emailPattern =
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+                    if (
+                        currentRole !== "farmer" &&
+                        emailValue === ""
+                    ) {
+
+
+                        setInvalid(
+                            email,
+                            emailError,
+                            "Email address is required."
+                        );
+
+
+                        valid =
+                            false;
+
+                    }
+
+
+                    else if (
+                        emailValue !== "" &&
+                        !emailPattern.test(
+                            emailValue
+                        )
+                    ) {
+
+
+                        setInvalid(
+                            email,
+                            emailError,
+                            "Please enter a valid email address."
+                        );
+
+
+                        valid =
+                            false;
+
+                    }
+
+
+
+                    /*
+                        PASSWORD
+                    */
+
+                    const passwordValue =
+                        password.value;
+
+
+                    const passwordValid =
+
+                        passwordValue.length >= 8
+
+                        &&
+
+                        /[A-Z]/.test(
+                            passwordValue
+                        )
+
+                        &&
+
+                        /[a-z]/.test(
+                            passwordValue
+                        )
+
+                        &&
+
+                        /\d/.test(
+                            passwordValue
+                        )
+
+                        &&
+
+                        /[^A-Za-z0-9]/.test(
+                            passwordValue
+                        );
+
+
+                    if (
+                        !passwordValid
+                    ) {
+
+
+                        setInvalid(
+                            password,
+                            passwordError,
+                            "Password must meet all the requirements."
+                        );
+
+
+                        valid =
+                            false;
+
+
+                        passwordRules.classList.remove(
+                            "hidden"
+                        );
+
+
+                        updatePasswordRules();
+
+                    }
+
+                }
+
+
+
+                /* =================================================
+                   LOGIN
+                ================================================= */
+
+                else {
+
+
+                    if (
+                        password.value.trim() ===
+                        ""
+                    ) {
+
+
+                        setInvalid(
+                            password,
+                            passwordError,
+                            "Please enter your password."
+                        );
+
+
+                        valid =
+                            false;
+
+                    }
+
+                }
+
+
+
+                /* =================================================
+                   SUCCESS
+                ================================================= */
+
+                if (
+                    valid
+                ) {
+
+
+                    if (
+                        isRegistration
+                    ) {
+
+
+                        alert(
+                            "Registration successful as " +
+                            selectedRoleText.textContent
+                        );
+
+
+                        /*
+                            Backend registration
+                            API goes here later.
+                        */
+
+                    }
+
+                    else {
+
+
+                        alert(
+                            "Login successful as " +
+                            selectedRoleText.textContent
+                        );
+
+
+                        /*
+                            Backend login
+                            API goes here later.
+                        */
+
+                    }
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           VALIDATION HELPERS
+        ===================================================== */
+
+        function setValid(
+            input,
+            error
+        ) {
+
+
+            input.classList.remove(
+                "invalid"
+            );
+
+
+            input.classList.add(
+                "valid"
+            );
+
+
+            error.classList.remove(
+                "show"
+            );
+
+
+            error.textContent =
+                "";
+
+        }
+
+
+
+        function setInvalid(
+            input,
+            error,
+            message
+        ) {
+
+
+            input.classList.remove(
+                "valid"
+            );
+
+
+            input.classList.add(
+                "invalid"
+            );
+
+
+            error.textContent =
+                message;
+
+
+            error.classList.add(
+                "show"
+            );
+
+        }
+
+
+
+        function clearValidation(
+            input,
+            error
+        ) {
+
+
+            input.classList.remove(
+                "valid",
+                "invalid"
+            );
+
+
+            error.classList.remove(
+                "show"
+            );
+
+
+            error.textContent =
+                "";
+
+        }
+
+
+
+        function clearAllErrors() {
+
+
+            clearValidation(
+                userId,
+                idError
+            );
+
+
+            clearValidation(
+                contact,
+                contactError
+            );
+
+
+            clearValidation(
+                email,
+                emailError
+            );
+
+
+            clearValidation(
+                password,
+                passwordError
+            );
+
+        }
+
+
+
+        /* =====================================================
+           INITIALIZE
+        ===================================================== */
+
+        updateRoleUI();
+
+    </script>
+
+</body>
+
+</html>
