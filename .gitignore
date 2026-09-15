@@ -1,7 +1,9 @@
 .venv/
+venv/
 .vscode/
 __pycache__/
 *.pyc
 *.pyo
 *.mp3
 .DS_Store
+.env
