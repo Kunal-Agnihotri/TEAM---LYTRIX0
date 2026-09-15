@@ -1,0 +1,1909 @@
+{
+  "en": {
+    "friend_intro": "Namaste! I am Aashi, your dedicated digital partner, here to guide you respectfully through every step of your farming and business journey—from secure login and crop listing to finding the best buyers and tracking your delivery.",
+    "auth_login": "Respected Sir, please provide your Farmer ID and registered mobile number so I can securely send the OTP for verification.",
+    "auth_success": "Verification successful! Welcome to your secure dashboard. How may I assist you today?",
+    "dashboard_home": "You are now on your farm command center. Would you like to list a new crop batch or check the latest market rates?",
+    "listing_prompt": "Please share the crop name, total quantity in quintals, and quality grade so I can present it to verified institutional buyers.",
+    "rates_header": "Here are the official baseline government rates per quintal to ensure you receive fair value:",
+    "paddy_common": "₹2,441 per quintal[cite: 1]",
+    "paddy_grade_a": "₹2,461 per quintal[cite: 1]",
+    "maize": "₹2,410 per quintal[cite: 1]",
+    "bajra": "₹2,900 per quintal[cite: 1]",
+    "ragi": "₹5,205 per quintal[cite: 1]",
+    "tur": "₹8,450 per quintal[cite: 1]",
+    "moong": "₹8,780 per quintal[cite: 1]",
+    "urad": "₹8,200 per quintal[cite: 1]",
+    "groundnut": "₹7,517 per quintal[cite: 1]",
+    "soybean": "₹5,708 per quintal[cite: 1]",
+    "cotton_medium": "₹8,267 per quintal[cite: 1]",
+    "cotton_long": "₹8,667 per quintal[cite: 1]",
+    "bids_received": "Good news! Verified corporate buyers have submitted competitive bids above the government baseline for your review.",
+    "smart_contract": "Our smart contract engine is drafting the legal agreement securely to ensure complete transparency and safety for your payment.",
+    "logistics_hub": "Please select your preferred transport option for pickup: company transport or our secure platform 3PL partner.",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "Paddy / Rice",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "paddy rate",
+          "rice rate",
+          "dhan ka bhav",
+          "paddy MSP",
+          "धान का भाव",
+          "चावल का भाव"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "Wheat",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "wheat rate",
+          "wheat price",
+          "gehun ka bhav",
+          "गेहूं का भाव",
+          "wheat MSP"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "Maize / Corn",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "maize rate",
+          "corn price",
+          "makka ka bhav",
+          "मक्का का भाव",
+          "maize MSP"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "Bajra / Pearl Millet",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "bajra rate",
+          "bajra price",
+          "bajra ka bhav",
+          "बाजरा का भाव",
+          "bajra MSP"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "Ragi / Finger Millet",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "ragi rate",
+          "ragi price",
+          "ragi ka bhav",
+          "रागी का भाव",
+          "ragi MSP"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "Tur / Arhar",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "tur rate",
+          "arhar rate",
+          "tur dal price",
+          "arhar ka bhav",
+          "तूर का भाव",
+          "अरहर का भाव"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "Moong / Green Gram",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "moong rate",
+          "green gram price",
+          "moong ka bhav",
+          "मूंग का भाव",
+          "moong MSP"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "Urad / Black Gram",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "urad rate",
+          "black gram price",
+          "urad ka bhav",
+          "उड़द का भाव",
+          "urad MSP"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "Groundnut / Peanut",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "groundnut rate",
+          "peanut price",
+          "moongfali ka bhav",
+          "मूंगफली का भाव"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "Soybean",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "soybean rate",
+          "soya price",
+          "soybean ka bhav",
+          "सोयाबीन का भाव"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "Cotton",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "cotton rate",
+          "kapas rate",
+          "cotton price",
+          "kapas ka bhav",
+          "कपास का भाव",
+          "cotton MSP"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "Today's market price",
+      "ask_location": "Which market or district should I check?",
+      "show_fields": "I will show market, date, variety, minimum, maximum and modal price.",
+      "msp_explain": "MSP is not the same as today's mandi price. I will show them separately.",
+      "no_data": "I could not find a recent official price for that market and crop. I can check a nearby market."
+    },
+    "scheme_help": {
+      "title": "Government schemes you may be eligible for",
+      "ask": "Tell me your state, crop and what help you need—money, insurance, loan, irrigation or equipment.",
+      "source_label": "Official source",
+      "eligibility": "Eligibility can depend on state, land, crop, season and other rules. I will not promise a benefit without checking."
+    },
+    "farmer_query_keywords": [
+      "today price",
+      "today rate",
+      "market price",
+      "mandi rate",
+      "crop rate",
+      "MSP",
+      "modal price",
+      "minimum price",
+      "maximum price",
+      "government rate",
+      "farmer scheme",
+      "new scheme",
+      "crop insurance",
+      "KCC",
+      "PM KISAN",
+      "where should I sell",
+      "find buyer"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "PM-KISAN",
+        "simple_benefit": "₹6,000 per year for eligible farmer families."
+      },
+      {
+        "id": "pmfby",
+        "name": "Crop Insurance (PMFBY)",
+        "simple_benefit": "Insurance support for eligible notified crops and areas."
+      },
+      {
+        "id": "kcc",
+        "name": "Kisan Credit Card (KCC)",
+        "simple_benefit": "Agricultural credit facility for eligible farmers."
+      },
+      {
+        "id": "pm_kusum",
+        "name": "PM-KUSUM",
+        "simple_benefit": "Support for eligible solar-energy and agricultural pump components."
+      },
+      {
+        "id": "soil_health_card",
+        "name": "Soil Health Card",
+        "simple_benefit": "Soil testing and nutrient guidance."
+      },
+      {
+        "id": "aif",
+        "name": "Agriculture Infrastructure Fund",
+        "simple_benefit": "Financing support for eligible agriculture infrastructure."
+      }
+    ],
+    "farmer_support": {
+      "quality_grades": {
+        "A": "Premium quality, suitable for premium institutional buyers and larger contracts.",
+        "B": "Good quality, accepted by many buyers and suitable for local or institutional trade.",
+        "C": "Standard quality, ideal for bulk local sales or price-sensitive channels."
+      },
+      "transport_modes": [
+        {
+          "id": "company_transport",
+          "label": "Company transport",
+          "description": "Pickup schedule arranged by the buyer or processor."
+        },
+        {
+          "id": "platform_3pl",
+          "label": "Platform 3PL partner",
+          "description": "Secure third-party logistics with verified delivery tracking."
+        },
+        {
+          "id": "farmer_self_delivery",
+          "label": "Farmer self-delivery",
+          "description": "You arrange transport directly to the buyer or mandi."
+        }
+      ],
+      "buyer_types": [
+        {
+          "type": "Institutional buyer",
+          "benefit": "Bulk procurement with predictable quality checks and formal contracts."
+        },
+        {
+          "type": "Processor",
+          "benefit": "Ideal for crop aggregation, milling and refining requirements."
+        },
+        {
+          "type": "Local mandi",
+          "benefit": "Fast trade for farmers who need quick sale and local pricing."
+        }
+      ],
+      "crop_calendar": {
+        "kharif": [
+          "Paddy",
+          "Maize",
+          "Cotton",
+          "Soybean",
+          "Groundnut",
+          "Bajra",
+          "Tur"
+        ],
+        "rabi": [
+          "Wheat",
+          "Mustard",
+          "Gram",
+          "Barley",
+          "Potato",
+          "Onion"
+        ]
+      }
+    }
+  },
+  "hi": {
+    "friend_intro": "नमस्ते जी! मैं आशि हूँ, आपकी डिजिटल सहयात्री। लॉगिन से लेकर फसल की बिक्री, सही दाम और सुरक्षित परिवहन तक, हर कदम पर आपकी पूरी सहायता करने के लिए यहाँ उपस्थित हूँ।",
+    "auth_login": "आदरणीय, कृपया अपनी किसान आईडी और फोन नंबर दर्ज करें ताकि सत्यापन हेतु ओटीपी भेजा जा सके।",
+    "auth_success": "सत्यापन सफल रहा! आपका स्वागत है। बताइए, आज हम आपकी क्या सहायता कर सकते हैं?",
+    "dashboard_home": "आप अब अपने कृषि नियंत्रण कक्ष में हैं। क्या आप नई फसल की सूची बनाना चाहते हैं या मंडी के भाव देखना चाहते हैं?",
+    "listing_prompt": "कृपया अपनी फसल का नाम, कुल मात्रा क्विंटल में और उसका ग्रेड बताएं ताकि उसे सम्मानित खरीदारों तक पहुँचाया जा सके।",
+    "rates_header": "आपकी सुविधा के लिए प्रति क्विंटल आधिकारिक सरकारी न्यूनतम समर्थन मूल्य (MSP) नीचे दिए गए हैं:",
+    "paddy_common": "₹2,441 प्रति क्विंटल[cite: 1]",
+    "paddy_grade_a": "₹2,461 प्रति क्विंटल[cite: 1]",
+    "maize": "₹2,410 प्रति क्विंटल[cite: 1]",
+    "bajra": "₹2,900 प्रति क्विंटल[cite: 1]",
+    "ragi": "₹5,205 प्रति क्विंटल[cite: 1]",
+    "tur": "₹8,450 प्रति क्विंटल[cite: 1]",
+    "moong": "₹8,780 प्रति क्विंटल[cite: 1]",
+    "urad": "₹8,200 प्रति क्विंटल[cite: 1]",
+    "groundnut": "₹7,517 प्रति क्विंटल[cite: 1]",
+    "soybean": "₹5,708 प्रति क्विंटल[cite: 1]",
+    "cotton_medium": "₹8,267 प्रति क्विंटल[cite: 1]",
+    "cotton_long": "₹8,667 प्रति क्विंटल[cite: 1]",
+    "bids_received": "शुभ समाचार! प्रतिष्ठित कंपनियों ने आपकी फसल पर सरकारी मूल्य से बेहतर बोलियाँ लगाई हैं, आइए उनका अवलोकन करें।",
+    "smart_contract": "हमारा स्मार्ट अनुबंध इंजन आपके कानूनी अधिकारों और सुरक्षित भुगतान को पूरी पारदर्शिता के साथ सुनिश्चित कर रहा है।",
+    "logistics_hub": "फसल के परिवहन के लिए कृपया चयन करें: क्या आप कंपनी का वाहन चाहते हैं या हमारी विश्वसनीय प्लेटफॉर्म 3PL सेवा?",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "धान / चावल",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "धान का भाव",
+          "चावल का भाव"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "गेहूं",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "गेहूं का भाव"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "मक्का",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "मक्का का भाव"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "बाजरा",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "बाजरा का भाव"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "रागी",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "रागी का भाव"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "तूर / अरहर",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "तूर का भाव",
+          "अरहर का भाव"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "मूंग",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "मूंग का भाव"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "उड़द",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "उड़द का भाव"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "मूंगफली",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "मूंगफली का भाव"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "सोयाबीन",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "सोयाबीन का भाव"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "कपास",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "कपास का भाव"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "आज का मंडी भाव",
+      "ask_location": "किस मंडी या जिले का भाव देखना है?",
+      "show_fields": "मैं मंडी, तारीख, फसल/किस्म, न्यूनतम, अधिकतम और मॉडल भाव दिखाऊँगी।",
+      "msp_explain": "MSP और आज का मंडी भाव एक ही चीज़ नहीं हैं। मैं दोनों अलग दिखाऊँगी।",
+      "no_data": "इस मंडी और फसल का हाल का सरकारी भाव नहीं मिला। मैं पास की मंडी देख सकती हूँ।"
+    },
+    "scheme_help": {
+      "title": "आपके लिए सरकारी योजनाएँ",
+      "ask": "अपना राज्य, फसल और जरूरत बताइए—पैसा, बीमा, कर्ज, सिंचाई या मशीन।",
+      "source_label": "सरकारी स्रोत",
+      "eligibility": "पात्रता राज्य, जमीन, फसल, मौसम और दूसरी शर्तों पर निर्भर हो सकती है। जांच किए बिना मैं लाभ का वादा नहीं करूँगी।"
+    },
+    "farmer_query_keywords": [
+      "आज का भाव",
+      "आज का रेट",
+      "मंडी भाव",
+      "फसल का भाव",
+      "सरकारी भाव",
+      "सरकारी रेट",
+      "MSP",
+      "मॉडल भाव",
+      "न्यूनतम भाव",
+      "अधिकतम भाव",
+      "किसान योजना",
+      "सरकारी योजना",
+      "नई योजना",
+      "फसल बीमा",
+      "किसान क्रेडिट कार्ड",
+      "PM KISAN",
+      "कहां बेचूं",
+      "खरीदार चाहिए"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "प्रधानमंत्री किसान सम्मान निधि (PM-KISAN)",
+        "simple_benefit": "पात्र किसान परिवारों को सालाना ₹6,000, तीन किस्तों में।"
+      },
+      {
+        "id": "pmfby",
+        "name": "प्रधानमंत्री फसल बीमा योजना (PMFBY)",
+        "simple_benefit": "पात्र अधिसूचित फसलों और क्षेत्रों के लिए फसल बीमा सहायता।"
+      },
+      {
+        "id": "kcc",
+        "name": "किसान क्रेडिट कार्ड (KCC)",
+        "simple_benefit": "पात्र किसानों के लिए कृषि ऋण सुविधा।"
+      },
+      {
+        "id": "pm_kusum",
+        "name": "पीएम-कुसुम",
+        "simple_benefit": "पात्र सौर ऊर्जा और कृषि पंप घटकों के लिए सहायता।"
+      },
+      {
+        "id": "soil_health_card",
+        "name": "मृदा स्वास्थ्य कार्ड",
+        "simple_benefit": "मिट्टी की जांच और पोषक तत्वों की जानकारी।"
+      },
+      {
+        "id": "aif",
+        "name": "कृषि अवसंरचना निधि (AIF)",
+        "simple_benefit": "पात्र कृषि अवसंरचना परियोजनाओं के लिए वित्तीय सहायता."
+      }
+    ],
+    "farmer_support": {
+      "quality_grades": {
+        "A": "प्रीमियम गुणवत्ता, उच्च-मूल्य संस्थागत खरीदारों के लिए उपयुक्त।",
+        "B": "अच्छी गुणवत्ता, कई खरीदारों के लिए स्वीकार्य और स्थानीय/संस्थागत व्यापार के लिए उपयुक्त।",
+        "C": "मानक गुणवत्ता, थोक स्थानीय बिक्री या कीमत-संवेदनशील चैनलों के लिए सही।"
+      },
+      "transport_modes": [
+        {
+          "id": "company_transport",
+          "label": "कंपनी ट्रांसपोर्ट",
+          "description": "खरीदार या प्रोसेसर द्वारा पिकअप शेड्यूल लगाया जाता है।"
+        },
+        {
+          "id": "platform_3pl",
+          "label": "प्लैटफॉर्म 3PL पार्टनर",
+          "description": "सुरक्षित तृतीय-पक्ष लॉजिस्टिक्स और ट्रैकिंग।"
+        },
+        {
+          "id": "farmer_self_delivery",
+          "label": "किसान स्वयं डिलीवरी",
+          "description": "आप सीधे खरीदार या मंडी तक ट्रांसपोर्ट की व्यवस्था करते हैं।"
+        }
+      ],
+      "buyer_types": [
+        {
+          "type": "संस्थागत खरीदार",
+          "benefit": "थोक खरीद, गुणवत्ता जांच और औपचारिक अनुबंध।"
+        },
+        {
+          "type": "प्रोसेसर",
+          "benefit": "मिलिंग, रिफाइनिंग और बड़े पैमाने पर प्रसंस्करण के लिए उपयुक्त।"
+        },
+        {
+          "type": "स्थानीय मंडी",
+          "benefit": "त्वरित बिक्री और स्थानीय मूल्य के लिए उपयोगी।"
+        }
+      ],
+      "crop_calendar": {
+        "kharif": [
+          "धान",
+          "मक्का",
+          "कपास",
+          "सोयाबीन",
+          "मूंगफली",
+          "बाजरा",
+          "तूर"
+        ],
+        "rabi": [
+          "गेहूं",
+          "सरसों",
+          "चना",
+          "जौ",
+          "आलू",
+          "प्याज"
+        ]
+      }
+    }
+  },
+  "mr": {
+    "friend_intro": "नमस्कार! मी आशि आहे, आपली डिजिटल सहाय्यक. सुरक्षित लॉगिनपासून ते पिकाची योग्य विक्री, कायदेशीर करार आणि वाहतूक व्यवस्थेपर्यंत प्रत्येक प्रवासात आपल्याला संपूर्ण सहकार्य करण्यासाठी मी येथे आहे.",
+    "auth_login": "आदरणीय शेतकरी बंधू, कृपया आपला शेतकरी आयडी आणि फोन नंबर सांगा, जेणेकरून पडताळणीसाठी ओटीपी पाठवता येईल.",
+    "auth_success": "पडताळणी यशस्वी झाली आहे! आपल्या डॅशबोर्डवर आपले स्वागत आहे.",
+    "dashboard_home": "आता आपण आपल्या शेतीच्या नियंत्रण कक्षात आहात. आज आपण कोणती सेवा पाहू इच्छिता?",
+    "listing_prompt": "कृपया आपल्या पिकाचे नाव, प्रमाण क्विंटलमध्ये आणि प्रत सांगा, जेणेकरून खरेदीदारांपर्यंत माहिती पोहोचवता येईल.",
+    "rates_header": "आपल्यासाठी प्रति क्विंटल अधिकृत शासकीय दर खालीलप्रमाणे आहेत:",
+    "paddy_common": "₹2,441 प्रति क्विंटल[cite: 1]",
+    "paddy_grade_a": "₹2,461 प्रति क्विंटल[cite: 1]",
+    "maize": "₹2,410 प्रति क्विंटल[cite: 1]",
+    "bajra": "₹2,900 प्रति क्विंटल[cite: 1]",
+    "ragi": "₹5,205 प्रति क्विंटल[cite: 1]",
+    "tur": "₹8,450 प्रति क्विंटल[cite: 1]",
+    "moong": "₹8,780 प्रति क्विंटल[cite: 1]",
+    "urad": "₹8,200 प्रति क्विंटल[cite: 1]",
+    "groundnut": "₹7,517 प्रति क्विंटल[cite: 1]",
+    "soybean": "₹5,708 प्रति क्विंटल[cite: 1]",
+    "cotton_medium": "₹8,267 प्रति क्विंटल[cite: 1]",
+    "cotton_long": "₹8,667 प्रति क्विंटल[cite: 1]",
+    "bids_received": "आनंदाची बातमी! नामांकित कंपन्यांकडून आपल्या पिकासाठी चांगल्या बोली आल्या आहेत, कृपया तपासून घ्या.",
+    "smart_contract": "आमचे स्मार्ट कॉन्ट्रैक्ट सिस्टीम आपले पेमेंट आणि कायदेशीर सुरक्षितता पूर्णपणे सांभाळत आहे.",
+    "logistics_hub": "माल पाठवण्यासाठी कृपया वाहन निवडा: कंपनीची वाहतूक किंवा आमची प्लॅटफॉर्म 3PL सेवा.",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "भात / धान",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "धानाचा भाव"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "गहू",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "गव्हाचा भाव"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "मका",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "मक्याचा भाव"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "बाजरी",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "बाजरीचा भाव"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "नाचणी",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "नाचणीचा भाव"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "तूर",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "तुरीचा भाव"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "मूग",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "मुगाचा भाव"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "उडीद",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "उडदाचा भाव"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "भुईमूग",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "भुईमुगाचा भाव"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "सोयाबीन",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "सोयाबीनचा भाव"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "कापूस",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "कापसाचा भाव"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "आजचा बाजारभाव",
+      "ask_location": "कोणत्या बाजाराचा किंवा जिल्ह्याचा भाव पाहायचा आहे?",
+      "show_fields": "मी बाजार, तारीख, पीक/वाण, किमान, कमाल आणि मॉडेल भाव दाखवेन.",
+      "msp_explain": "MSP आणि आजचा बाजारभाव वेगळे आहेत. मी दोन्ही स्वतंत्र दाखवेन.",
+      "no_data": "या बाजारासाठी या पिकाचा अलीकडील अधिकृत भाव सापडला नाही. जवळचा बाजार पाहू शकतो."
+    },
+    "scheme_help": {
+      "title": "तुमच्यासाठी सरकारी योजना",
+      "ask": "तुमचे राज्य, पीक आणि गरज सांगा—पैसे, विमा, कर्ज, सिंचन किंवा यंत्रसामग्री.",
+      "source_label": "अधिकृत स्रोत",
+      "eligibility": "पात्रता राज्य, जमीन, पीक, हंगाम आणि इतर नियमांवर अवलंबून असते."
+    },
+    "farmer_query_keywords": [
+      "आजचा बाजारभाव",
+      "मंडी भाव",
+      "शेतमालाचा भाव",
+      "सरकारी दर",
+      "MSP",
+      "मॉडेल भाव",
+      "शेतकरी योजना",
+      "पीक विमा",
+      "किसान क्रेडिट कार्ड",
+      "कुठे विकू",
+      "खरेदीदार हवा"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "प्रधानमंत्री किसान सन्मान निधी",
+        "simple_benefit": "पात्र शेतकरी कुटुंबांना वर्षाला ₹6,000, तीन हप्त्यांत."
+      },
+      {
+        "id": "pmfby",
+        "name": "प्रधानमंत्री पीक विमा योजना",
+        "simple_benefit": "पात्र पिकांसाठी पीक विमा मदत."
+      },
+      {
+        "id": "kcc",
+        "name": "किसान क्रेडिट कार्ड",
+        "simple_benefit": "पात्र शेतकऱ्यांसाठी कृषी कर्ज सुविधा."
+      },
+      {
+        "id": "pm_kusum",
+        "name": "पीएम-कुसुम",
+        "simple_benefit": "पात्र सौर ऊर्जा आणि कृषी पंप घटकांसाठी मदत."
+      },
+      {
+        "id": "soil_health_card",
+        "name": "मृदा आरोग्य कार्ड",
+        "simple_benefit": "माती तपासणी आणि पोषक घटकांची माहिती."
+      },
+      {
+        "id": "aif",
+        "name": "कृषी पायाभूत सुविधा निधी",
+        "simple_benefit": "पात्र कृषी पायाभूत सुविधा प्रकल्पांसाठी आर्थिक मदत."
+      }
+    ]
+  },
+  "pa": {
+    "friend_intro": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਮੈਂ ਆਸ਼ੀ ਹਾਂ, ਤੁਹਾਡੀ ਡਿਜੀਟਲ ਸਹਿਯੋਗੀ। ਲੌਗਇਨ ਤੋਂ ਲੈ ਕੇ ਫਸਲ ਦੀ ਸਹੀ ਵਿਕਰੀ, ਸਰਕਾਰੀ ਰੇਟਾਂ ਅਤੇ ਸੁਰੱਖਿਅਤ ਢੁਆਈ ਤੱਕ, ਹਰ ਕਦਮ 'ਤੇ ਤੁਹਾਡੀ ਮਦਦ ਲਈ ਹਾਜ਼ਰ ਹਾਂ।",
+    "auth_login": "ਆਦਰਯੋਗ ਜੀ, ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਕਿਸਾਨ ਆਈਡੀ ਅਤੇ ਫੋਨ ਨੰਬਰ ਦੋਓ ताकि ਓ.ਟੀ.ਪੀ. ਰਾਹੀਂ ਸੁਰੱਖਿਅਤ ਲੌਗਇਨ ਕੀਤਾ ਜਾ ਸਕੇ।",
+    "auth_success": "ਤਸਦੀਕ ਸਫਲ ਰਹੀ! ਜੀ ਆਇਆਂ ਨੂੰ, ਤੁਹਾਡ तुमचा ਡੈਸ਼ਬੋਰਡ ਤਿਆਰ ਹੈ।",
+    "dashboard_home": "ਤੁਸੀਂ ਹੁਣ ਆਪਣੇ ਖੇਤੀ ਕੰਟਰੋਲ ਰੂਮ ਵਿੱਚ ਹੋ। ਅੱਜ ਅਸੀਂ ਕਿਸ ਸੇਵਾ ਵਿੱਚ आपकी सहायता ਕਰੀਏ?",
+    "listing_prompt": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਫਸਲ ਦਾ ਨਾਮ, ਕੁਆਂਟਿਟੀ ਅਤੇ ਗ੍ਰੇਡ ਦੱਸੋ ਤਾਂ ਜੋ ਵੱਡੇ ਖਰੀਦਦਾਰਾਂ ਨਾਲ ਗੱਲਬਾਤ ਹੋ ਸਕੇ।",
+    "rates_header": "ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ ਲਈ ਪ੍ਰਤੀ ਕੁਇੰਟਲ ਅਧਿਕਾਰਤ ਸਰਕਾਰੀ ਭਾਅ ਇਹ ਹਨ:",
+    "paddy_common": "₹2,441 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "paddy_grade_a": "₹2,461 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "maize": "₹2,410 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "bajra": "₹2,900 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "ragi": "₹5,205 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "tur": "₹8,450 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "moong": "₹8,780 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "urad": "₹8,200 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "groundnut": "₹7,517 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "soybean": "₹5,708 ਪ੍ਰਤੀ क्विंटल[cite: 1]",
+    "cotton_medium": "₹8,267 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "cotton_long": "₹8,667 ਪ੍ਰਤੀ ਕੁਇੰਟਲ[cite: 1]",
+    "bids_received": "ਚੰਗੀ ਖ਼ਬਰ! ਵੱਖ-ਵੱਖ ਕੰਪਨੀਆਂ ਵੱਲੋਂ ਤੁਹਾਡੀ ਫਸਲ ਲਈ ਵਧੀਆ ਬੋਲੀਆਂ ਆਈਆਂ ਹਨ।",
+    "smart_contract": "ਸਾਡਾ ਸਮਾਰਟ ਕੰਟਰੈਕਟ ਸਿਸਟਮ ਕਾਨੂੰਨੀ ਤੌਰ 'ਤੇ ਸਾਰੇ ਨਿਯਮਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਅਤੇ ਪਾਰਦਰਸ਼ੀ ਬਣਾਉਂਦਾ ਹੈ।",
+    "logistics_hub": "ਫਸਲ ਦੀ ਢੁਆਈ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਚੁਣੋ: ਕੰਪਨੀ ਦਾ ਵਾਹਨ ਜਾਂ ਪਲੇਟਫਾਰਮ ਦੀ 3PL ਸੇਵਾ।",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "ਝੋਨਾ / ਚੌਲ",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "ਝੋਨੇ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "ਕਣਕ",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "ਕਣਕ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "ਮੱਕੀ",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "ਮੱਕੀ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "ਬਾਜਰਾ",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "ਬਾਜਰੇ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "ਰਾਗੀ",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "ਰਾਗੀ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "ਤੂਰ / ਅਰਹਰ",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "ਤੂਰ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "ਮੂੰਗੀ",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "ਮੂੰਗੀ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "ਉੜਦ",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "ਉੜਦ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "ਮੂੰਗਫਲੀ",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "ਮੂੰਗਫਲੀ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "ਸੋਇਆਬੀਨ",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "ਸੋਇਆਬੀਨ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "ਕਪਾਹ",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "ਕਪਾਹ ਦਾ ਭਾਅ"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "ਅੱਜ ਦਾ ਮੰਡੀ ਭਾਅ",
+      "ask_location": "ਕਿਹੜੀ ਮੰਡੀ ਜਾਂ ਜ਼ਿਲ੍ਹੇ ਦਾ ਭਾਅ ਵੇਖਣਾ ਹੈ?",
+      "show_fields": "ਮੈਂ ਮੰਡੀ, ਤਾਰੀਖ, ਫਸਲ/ਕਿਸਮ, ਘੱਟੋ-ਘੱਟ, ਵੱਧ ਤੋਂ ਵੱਧ ਅਤੇ ਮਾਡਲ ਭਾਅ ਦਿਖਾਵਾਂਗੀ।",
+      "msp_explain": "MSP ਅਤੇ ਅੱਜ ਦਾ ਮੰਡੀ ਭਾਅ ਇੱਕੋ ਨਹੀਂ ਹਨ। ਮੈਂ ਦੋਵੇਂ ਵੱਖਰੇ ਦਿਖਾਵਾਂਗੀ।",
+      "no_data": "ਇਸ ਮੰਡੀ ਅਤੇ ਫਸਲ ਲਈ ਤਾਜ਼ਾ ਸਰਕਾਰੀ ਭਾਅ ਨਹੀਂ ਮਿਲਿਆ। ਨੇੜਲੀ ਮੰਡੀ ਵੇਖ ਸਕਦੀ ਹਾਂ।"
+    },
+    "scheme_help": {
+      "title": "ਤੁਹਾਡੇ ਲਈ ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ",
+      "ask": "ਆਪਣਾ ਰਾਜ, ਫਸਲ ਅਤੇ ਲੋੜ ਦੱਸੋ—ਪੈਸਾ, ਬੀਮਾ, ਕਰਜ਼ਾ, ਸਿੰਚਾਈ ਜਾਂ ਮਸ਼ੀਨ।",
+      "source_label": "ਸਰਕਾਰੀ ਸਰੋਤ",
+      "eligibility": "ਯੋਗਤਾ ਰਾਜ, ਜ਼ਮੀਨ, ਫਸਲ, ਮੌਸਮ ਅਤੇ ਹੋਰ ਨਿਯਮਾਂ ਤੇ ਨਿਰਭਰ ਕਰ ਸਕਦੀ ਹੈ।"
+    },
+    "farmer_query_keywords": [
+      "ਮੰਡੀ ਭਾਅ",
+      "ਅੱਜ ਦਾ ਭਾਅ",
+      "ਫਸਲ ਦਾ ਭਾਅ",
+      "ਸਰਕਾਰੀ ਭਾਅ",
+      "MSP",
+      "ਮਾਡਲ ਭਾਅ",
+      "ਸਰਕਾਰੀ ਯੋਜਨਾ",
+      "ਫਸਲ ਬੀਮਾ",
+      "ਕਿਸਾਨ ਕ੍ਰੈਡਿਟ ਕਾਰਡ",
+      "ਕਿੱਥੇ ਵੇਚਾਂ",
+      "ਖਰੀਦਦਾਰ ਚਾਹੀਦਾ"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "ਪ੍ਰਧਾਨ ਮੰਤਰੀ ਕਿਸਾਨ ਸਨਮਾਨ ਨਿਧੀ",
+        "simple_benefit": "ਯੋਗ ਕਿਸਾਨ ਪਰਿਵਾਰਾਂ ਲਈ ਸਾਲਾਨਾ ₹6,000, ਤਿੰਨ ਕਿਸ਼ਤਾਂ ਵਿੱਚ।"
+      },
+      {
+        "id": "pmfby",
+        "name": "ਪ੍ਰਧਾਨ ਮੰਤਰੀ ਫਸਲ ਬੀਮਾ ਯੋਜਨਾ",
+        "simple_benefit": "ਯੋਗ ਫਸਲਾਂ ਲਈ ਫਸਲ ਬੀਮਾ ਸਹਾਇਤਾ।"
+      },
+      {
+        "id": "kcc",
+        "name": "ਕਿਸਾਨ ਕ੍ਰੈਡਿਟ ਕਾਰਡ",
+        "simple_benefit": "ਯੋਗ ਕਿਸਾਨਾਂ ਲਈ ਖੇਤੀਬਾੜੀ ਕਰਜ਼ਾ ਸਹੂਲਤ।"
+      },
+      {
+        "id": "pm_kusum",
+        "name": "ਪੀਐਮ-ਕੁਸੁਮ",
+        "simple_benefit": "ਯੋਗ ਸੂਰਜੀ ਊਰਜਾ ਅਤੇ ਖੇਤੀਬਾੜੀ ਪੰਪਾਂ ਲਈ ਸਹਾਇਤਾ।"
+      },
+      {
+        "id": "soil_health_card",
+        "name": "ਮਿੱਟੀ ਸਿਹਤ ਕਾਰਡ",
+        "simple_benefit": "ਮਿੱਟੀ ਦੀ ਜਾਂਚ ਅਤੇ ਪੋਸ਼ਕ ਤੱਤਾਂ ਦੀ ਜਾਣਕਾਰੀ।"
+      },
+      {
+        "id": "aif",
+        "name": "ਖੇਤੀਬਾੜੀ ਬੁਨਿਆਦੀ ਢਾਂਚਾ ਫੰਡ",
+        "simple_benefit": "ਯੋਗ ਖੇਤੀਬਾੜੀ ਢਾਂਚਾ ਪ੍ਰੋਜੈਕਟਾਂ ਲਈ ਵਿੱਤੀ ਸਹਾਇਤਾ."
+      }
+    ]
+  },
+  "ta": {
+    "friend_intro": "வணக்கம்! நான் ஆஷி, உங்களின் டிஜிட்டல் உதவியாளர். லாகின் செய்வது முதல், பயிர்களை சிறந்த விலைக்கு விற்பது, ஒப்பந்தங்கள் மற்றும் போக்குவரத்து வரை உங்களுக்கு முழுமையான ஆதரவு வழங்குகிறேன்.",
+    "auth_login": "ஐயா, உங்கள் விவசாயி ஐடி மற்றும் தொலைபேசி எண்ணை வழங்கவும், உடனடியாக ஓடிபி அனுப்பி சரிபார்க்கிறோம்.",
+    "auth_success": "சரிபார்ப்பு வெற்றிகரமாக முடிந்தது! உங்களை அன்புடன் வரவேற்கிறோம்.",
+    "dashboard_home": "நீங்கள் இப்போது உங்களின் விவசாய கட்டுப்பாட்டுப் பலகத்தில் உள்ளீர்கள். இன்று உங்களுக்கு என்ன உதவி வேண்டும்?",
+    "listing_prompt": "வாங்குபவர்களிடம் சமர்ப்பிக்க, தயவுசெய்து பயிரின் பெயர், அளவு மற்றும் தர நிலையை தெரிவிக்கவும்.",
+    "rates_header": "அரசு நிர்ணயித்த அதிகாரப்பூர்வ குறைந்தபட்ச ஆதரவு விலை விவரங்கள் இதோ:",
+    "paddy_common": "₹2,441 குவிண்டால்[cite: 1]",
+    "paddy_grade_a": "₹2,461 குவிண்டால்[cite: 1]",
+    "maize": "₹2,410 குவிண்டால்[cite: 1]",
+    "bajra": "₹2,900 குவிண்டால்[cite: 1]",
+    "ragi": "₹5,205 குவிண்டால்[cite: 1]",
+    "tur": "₹8,450 குவிண்டால்[cite: 1]",
+    "moong": "₹8,780 குவிண்டால்[cite: 1]",
+    "urad": "₹8,200 குவிண்டால்[cite: 1]",
+    "groundnut": "₹7,517 குவிண்டால்[cite: 1]",
+    "soybean": "₹5,708 குவிண்டால்[cite: 1]",
+    "cotton_medium": "₹8,267 குவிண்டால்[cite: 1]",
+    "cotton_long": "₹8,667 குவிண்டால்[cite: 1]",
+    "bids_received": "நல்ல செய்தி! பதிவு செய்யப்பட்ட நிறுவனங்களிடமிருந்து உங்களின் பயிர்களுக்கு சிறந்த ஏல விலைகள் வந்துள்ளன.",
+    "smart_contract": "எங்கள் ஸ்மார்ட் ஒப்பந்த முறை உங்கள் பரிவர்த்தனைகளை முழு பாதுகாப்புடன் நிறைவேற்றுகிறது.",
+    "logistics_hub": "சரக்குகளை அனுப்ப போக்குவரத்து சேவையை தேர்ந்தெடுக்கவும்: நிறுவன வாகனம் அல்லது பிளாட்ஃபார்ம் 3PL சேவை.",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "நெல் / அரிசி",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "நெல் விலை"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "கோதுமை",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "கோதுமை விலை"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "மக்காச்சோளம்",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "மக்காச்சோளம் விலை"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "கம்பு",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "கம்பு விலை"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "கேழ்வரகு",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "கேழ்வரகு விலை"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "துவரை",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "துவரை விலை"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "பாசிப்பயறு",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "பாசிப்பயறு விலை"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "உளுந்து",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "உளுந்து விலை"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "நிலக்கடலை",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "நிலக்கடலை விலை"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "சோயாபீன்",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "சோயாபீன் விலை"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "பருத்தி",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "பருத்தி விலை"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "இன்றைய சந்தை விலை",
+      "ask_location": "எந்த சந்தை அல்லது மாவட்டத்தின் விலையை பார்க்க வேண்டும்?",
+      "show_fields": "சந்தை, தேதி, பயிர்/வகை, குறைந்தபட்சம், அதிகபட்சம் மற்றும் மாடல் விலையை காட்டுவேன்.",
+      "msp_explain": "MSP மற்றும் இன்றைய சந்தை விலை ஒன்றல்ல. இரண்டையும் தனித்தனியாக காட்டுவேன்.",
+      "no_data": "இந்த சந்தை மற்றும் பயிருக்கு சமீபத்திய அதிகாரப்பூர்வ விலை கிடைக்கவில்லை. அருகிலுள்ள சந்தையை பார்க்கலாம்."
+    },
+    "scheme_help": {
+      "title": "உங்களுக்கு கிடைக்கக்கூடிய அரசு திட்டங்கள்",
+      "ask": "உங்கள் மாநிலம், பயிர் மற்றும் தேவையை சொல்லுங்கள்—பணம், காப்பீடு, கடன், பாசனம் அல்லது இயந்திரம்.",
+      "source_label": "அதிகாரப்பூர்வ மூலம்",
+      "eligibility": "தகுதி மாநிலம், நிலம், பயிர், பருவம் மற்றும் பிற விதிகளின் அடிப்படையில் மாறலாம்."
+    },
+    "farmer_query_keywords": [
+      "மண்டி விலை",
+      "இன்றைய விலை",
+      "பயிர் விலை",
+      "அரசு விலை",
+      "MSP",
+      "மாடல் விலை",
+      "அரசு திட்டம்",
+      "பயிர் காப்பீடு",
+      "கிசான் கிரெடிட் கார்டு",
+      "எங்கே விற்கலாம்",
+      "வாங்குபவர்"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "பிரதமர் கிசான் சம்மான் நிதி",
+        "simple_benefit": "தகுதியுள்ள விவசாய குடும்பங்களுக்கு ஆண்டுக்கு ₹6,000."
+      },
+      {
+        "id": "pmfby",
+        "name": "பிரதமர் பயிர் காப்பீட்டு திட்டம்",
+        "simple_benefit": "தகுதியுள்ள பயிர்களுக்கு காப்பீட்டு ஆதரவு."
+      },
+      {
+        "id": "kcc",
+        "name": "கிசான் கிரெடிட் கார்டு",
+        "simple_benefit": "தகுதியுள்ள விவசாயிகளுக்கான வேளாண் கடன் வசதி."
+      },
+      {
+        "id": "pm_kusum",
+        "name": "பிஎம்-குசும்",
+        "simple_benefit": "தகுதியுள்ள சூரிய ஆற்றல் மற்றும் வேளாண் பம்புகளுக்கு ஆதரவு."
+      },
+      {
+        "id": "soil_health_card",
+        "name": "மண் நல அட்டை",
+        "simple_benefit": "மண் பரிசோதனை மற்றும் ஊட்டச்சத்து தகவல்."
+      },
+      {
+        "id": "aif",
+        "name": "வேளாண் உள்கட்டமைப்பு நிதி",
+        "simple_benefit": "தகுதியுள்ள வேளாண் உள்கட்டமைப்பு திட்டங்களுக்கு நிதி ஆதரவு."
+      }
+    ]
+  },
+  "te": {
+    "friend_intro": "నమస్కారం! నేను ఆషిని, మీ డిజిటల్ సహచరురాలిని. సురక్షితమైన లాగిన్ నుండి పంట అమ్మకం, ఉత్తమ ధరల గుర్తింపు మరియు రవాణా వరకు ప్రతి దశలో మీకు సహాయం చేయడానికి సిద్ధంగా ఉన్నాను.",
+    "auth_login": "గౌరవనీయులైన రైతు మిత్రులారా, దయచేసి మీ ఐడీ మరియు ఫోన్ నంబర్‌ను ఇవ్వండి, మేము ఓటీపీ ద్వారా ధృవీకరిస్తాము.",
+    "auth_success": "ధృవీకరణ విజయవంతమైంది! మీ డాష్‌బోర్డ్‌కు స్వాగతం.",
+    "dashboard_home": "మీరు ఇప్పుడు మీ వ్యవసాయ నియంత్రణ కేంద్రంలో ఉన్నారు. ఈరోజు మీకు ఏ విధంగా సహాయం చేయగలను?",
+    "listing_prompt": "దయచేసి కొనుగోలుదారుల కోసం పంట పేరు, పరిమాణం మరియు గ్రేడ్ వివరాలను తెలపండి.",
+    "rates_header": "ప్రభుత్వ నిబంధనల ప్రకారం క్వింటాల్‌కు అధికారిక మద్దతు ధరల జాబితా:",
+    "paddy_common": "₹2,441 క్వింటాల్[cite: 1]",
+    "paddy_grade_a": "₹2,461 క్వింటాల్[cite: 1]",
+    "maize": "₹2,410 క్వింటాల్[cite: 1]",
+    "bajra": "₹2,900 క్వింటాల్[cite: 1]",
+    "ragi": "₹5,205 క్వింటాల్[cite: 1]",
+    "tur": "₹8,450 క్వింటాల్[cite: 1]",
+    "moong": "₹8,780 క్వింటాల్[cite: 1]",
+    "urad": "₹8,200 క్వింటాల్[cite: 1]",
+    "groundnut": "₹7,517 క్వింటాల్[cite: 1]",
+    "soybean": "₹5,708 క్వింటాల్[cite: 1]",
+    "cotton_medium": "₹8,267 క్వింటాల్[cite: 1]",
+    "cotton_long": "₹8,667 క్వింటాల్[cite: 1]",
+    "bids_received": "శుభవార్త! ప్రముఖ కంపెనీల నుండి మీ పంటకు మంచి బిడ్లు వచ్చాయి, దయచేసి పరిశీలించండి.",
+    "smart_contract": "మా స్మార్ట్ కాంట్రాక్ట్ విధానం ద్వారా మీ లావాదేవీలు మరియు చెల్లింపులు పూర్తిగా సురక్షితంగా ఉంటాయి.",
+    "logistics_hub": "రవాణా కొరకు దయచేసి ఎంచుకోండి: కంపెనీ రవాణా లేదా మా ప్లాట్‌ఫారమ్ 3PL భాగస్వామి వాహనం.",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "వరి / బియ్యం",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "వరి ధర"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "గోధుమ",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "గోధుమ ధర"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "మొక్కజొన్న",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "మొక్కజొన్న ధర"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "సజ్జ",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "సజ్జ ధర"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "రాగి",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "రాగి ధర"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "కందులు",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "కందుల ధర"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "పెసలు",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "పెసల ధర"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "మినుములు",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "మినుముల ధర"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "వేరుశెనగ",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "వేరుశెనగ ధర"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "సోయాబీన్",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "సోయాబీన్ ధర"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "పత్తి",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "పత్తి ధర"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "ఈరోజు మార్కెట్ ధర",
+      "ask_location": "ఏ మార్కెట్ లేదా జిల్లా ధర చూడాలి?",
+      "show_fields": "మార్కెట్, తేదీ, పంట/రకం, కనిష్ఠ, గరిష్ఠ మరియు మోడల్ ధర చూపిస్తాను.",
+      "msp_explain": "MSP మరియు ఈరోజు మార్కెట్ ధర ఒకటి కాదు. రెండింటినీ వేరుగా చూపిస్తాను.",
+      "no_data": "ఈ మార్కెట్ మరియు పంటకు తాజా అధికారిక ధర దొరకలేదు. దగ్గరలోని మార్కెట్‌ను చూడవచ్చు."
+    },
+    "scheme_help": {
+      "title": "మీకు ఉపయోగపడే ప్రభుత్వ పథకాలు",
+      "ask": "మీ రాష్ట్రం, పంట మరియు అవసరం చెప్పండి—డబ్బు, బీమా, రుణం, సాగునీరు లేదా యంత్రం.",
+      "source_label": "అధికారిక మూలం",
+      "eligibility": "అర్హత రాష్ట్రం, భూమి, పంట, సీజన్ మరియు ఇతర నియమాలపై ఆధారపడి ఉంటుంది."
+    },
+    "farmer_query_keywords": [
+      "మండి ధర",
+      "ఈరోజు ధర",
+      "పంట ధర",
+      "ప్రభుత్వ ధర",
+      "MSP",
+      "మోడల్ ధర",
+      "ప్రభుత్వ పథకం",
+      "పంట బీమా",
+      "కిసాన్ క్రెడిట్ కార్డు",
+      "ఎక్కడ అమ్మాలి",
+      "కొనుగోలుదారు"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "ప్రధాన మంత్రి కిసాన్ సమ్మాన్ నిధి",
+        "simple_benefit": "అర్హత ఉన్న రైతు కుటుంబాలకు సంవత్సరానికి ₹6,000."
+      },
+      {
+        "id": "pmfby",
+        "name": "ప్రధాన మంత్రి పంట బీమా పథకం",
+        "simple_benefit": "అర్హత ఉన్న పంటలకు పంట బీమా సహాయం."
+      },
+      {
+        "id": "kcc",
+        "name": "కిసాన్ క్రెడిట్ కార్డు",
+        "simple_benefit": "అర్హత ఉన్న రైతులకు వ్యవసాయ రుణ సౌకర్యం."
+      },
+      {
+        "id": "pm_kusum",
+        "name": "పీఎం-కుసుమ్",
+        "simple_benefit": "అర్హత ఉన్న సౌరశక్తి మరియు వ్యవసాయ పంపులకు సహాయం."
+      },
+      {
+        "id": "soil_health_card",
+        "name": "సాయిల్ హెల్త్ కార్డు",
+        "simple_benefit": "మట్టి పరీక్ష మరియు పోషక సమాచారం."
+      },
+      {
+        "id": "aif",
+        "name": "అగ్రికల్చర్ ఇన్‌ఫ్రాస్ట్రక్చర్ ఫండ్",
+        "simple_benefit": "అర్హత ఉన్న వ్యవసాయ మౌలిక వసతుల ప్రాజెక్టులకు ఆర్థిక సహాయం."
+      }
+    ]
+  },
+  "ml": {
+    "friend_intro": "നമസ്കാരം! ഞാൻ ആഷിയാണ്, നിങ്ങളുടെ ഡിജിറ്റൽ സഹായി. സുരക്ഷിതമായ ലോഗിൻ മുതൽ വിളകളുടെ വിപണനം, മികച്ച വില കണ്ടെത്തൽ, സുതാര്യമായ കരാറുകൾ, ഗതാഗതം എന്നിവയിൽ നിങ്ങൾക്ക് പൂർണ്ണ പിന്തുണ നൽകാൻ ഞാൻ ഇവിടെയുണ്ട്.",
+    "auth_login": "പ്രിയപ്പെട്ട കർഷകരേ, ഒ.ടി.പി അയച്ചു പരിശോധിക്കുന്നതിനായി ദയവായി നിങ്ങളുടെ ഫാർമർ ഐഡിയും ഫോൺ നമ്പറും നൽകുക.",
+    "auth_success": "പരിശോധന വിജയിച്ചു! ഡാഷ്‌ബോർഡിലേക്ക് സ്വാഗതം.",
+    "dashboard_home": "നിങ്ങൾ ഇപ്പോൾ നിങ്ങളുടെ ഫാമിംഗ് കൺട്രോൾ റൂമിലാണ് ഉള്ളത്. ഇന്ന് എന്ത് സേവനമാണ് വേണ്ടത്?",
+    "listing_prompt": "വാങ്ങുന്നവരുടെ അരികിലേക്ക് എത്തിക്കുന്നതിനായി വിളയുടെ പേര്, അളവ്, ഗ്രേഡ് എന്നിവ ദയവായി നൽകുക.",
+    "rates_header": "അധികൃത സർക്കാർ താങ്ങുവില വിവരങ്ങൾ താഴെ നൽകുന്നു:",
+    "paddy_common": "₹2,441 ക്വിന്റലിന്[cite: 1]",
+    "paddy_grade_a": "₹2,461 ക്വിന്റലിന്[cite: 1]",
+    "maize": "₹2,410 ക്విന്റലിന്[cite: 1]",
+    "bajra": "₹2,900 ക്വിന്റലിന്[cite: 1]",
+    "ragi": "₹5,205 ക്വിന്റലിന്[cite: 1]",
+    "tur": "₹8,450 ക്విന്റലിന്[cite: 1]",
+    "moong": "₹8,780 ക്വിന്റലിന്[cite: 1]",
+    "urad": "₹8,200 ക്വിന്റലിന്[cite: 1]",
+    "groundnut": "₹7,517 ക്വിന്റലിന്[cite: 1]",
+    "soybean": "₹5,708 ക്വിന്റലിന്[cite: 1]",
+    "cotton_medium": "₹8,267 ക്വിന്റലിന്[cite: 1]",
+    "cotton_long": "₹8,667 ക്വിന്റലിന്[cite: 1]",
+    "bids_received": "സന്തോഷവാർത്ത! അംഗീകൃത കമ്പനികളിൽ നിന്ന് നിങ്ങളുടെ വിളയ്ക്ക് മികച്ച ബിഡുകൾ ലഭിച്ചിട്ടുണ്ട്.",
+    "smart_contract": "ഞങ്ങളുടെ സ്മാർട്ട് കോൺട്രാക്റ്റ് സിസ്റ്റം വഴി എല്ലാ നിയമപരമായ നടപടികളും തികച്ചും സുരക്ഷിതമായി നടപ്പിലാക്കുന്നു.",
+    "logistics_hub": "വിളകൾ കൊണ്ടുപോകുന്നതിനായി വാഹനം തിരഞ്ഞെടുക്കുക: കമ്പനി വാഹനം അല്ലെങ്കിൽ ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോം 3PL സേവനം.",
+    "crop_knowledge": {
+      "paddy": {
+        "name": "നെല്ല് / അരി",
+        "aliases": [
+          "rice",
+          "dhan",
+          "paddy",
+          "धान",
+          "चावल"
+        ],
+        "farmer_queries": [
+          "നെല്ലിന്റെ വില"
+        ],
+        "simple_explanation": "Paddy is rice before milling. Ask for the market and date when checking price."
+      },
+      "wheat": {
+        "name": "ഗോതമ്പ്",
+        "aliases": [
+          "wheat",
+          "गेहूं"
+        ],
+        "farmer_queries": [
+          "ഗോതമ്പിന്റെ വില"
+        ],
+        "simple_explanation": "Wheat price can differ between mandis. Show market, date, variety and modal price."
+      },
+      "maize": {
+        "name": "ചോളം",
+        "aliases": [
+          "maize",
+          "corn",
+          "makka",
+          "मक्का",
+          "भुट्टा"
+        ],
+        "farmer_queries": [
+          "ചോളത്തിന്റെ വില"
+        ],
+        "simple_explanation": "Maize price depends on market, variety, quality and date."
+      },
+      "bajra": {
+        "name": "ബജ്ര",
+        "aliases": [
+          "bajra",
+          "pearl millet",
+          "बाजरा"
+        ],
+        "farmer_queries": [
+          "ബജ്ര വില"
+        ],
+        "simple_explanation": "Bajra is a millet. Location and date are needed for a useful market-price answer."
+      },
+      "ragi": {
+        "name": "റാഗി",
+        "aliases": [
+          "ragi",
+          "finger millet",
+          "nachni",
+          "रागी",
+          "नाचनी"
+        ],
+        "farmer_queries": [
+          "റാഗി വില"
+        ],
+        "simple_explanation": "Ragi is also called finger millet. Market price and MSP should be shown separately."
+      },
+      "tur": {
+        "name": "തുവര",
+        "aliases": [
+          "tur",
+          "arhar",
+          "pigeon pea",
+          "तूर",
+          "अरहर"
+        ],
+        "farmer_queries": [
+          "തുവര വില"
+        ],
+        "simple_explanation": "Tur and Arhar commonly refer to the same pulse crop. Show the exact market and variety."
+      },
+      "moong": {
+        "name": "ചെറുപയർ",
+        "aliases": [
+          "moong",
+          "green gram",
+          "mung",
+          "मूंग"
+        ],
+        "farmer_queries": [
+          "ചെറുപയർ വില"
+        ],
+        "simple_explanation": "Moong price can change with quality and market."
+      },
+      "urad": {
+        "name": "ഉഴുന്ന്",
+        "aliases": [
+          "urad",
+          "black gram",
+          "उड़द"
+        ],
+        "farmer_queries": [
+          "ഉഴുന്ന് വില"
+        ],
+        "simple_explanation": "Urad is a pulse crop. Compare the modal price and selling costs."
+      },
+      "groundnut": {
+        "name": "നിലക്കടല",
+        "aliases": [
+          "groundnut",
+          "peanut",
+          "moongfali",
+          "मूंगफली"
+        ],
+        "farmer_queries": [
+          "നിലക്കടല വില"
+        ],
+        "simple_explanation": "Groundnut prices depend on market, variety and quality."
+      },
+      "soybean": {
+        "name": "സോയാബീൻ",
+        "aliases": [
+          "soybean",
+          "soya",
+          "सोयाबीन"
+        ],
+        "farmer_queries": [
+          "സോയാബീൻ വില"
+        ],
+        "simple_explanation": "Soybean price should be shown with mandi, date and variety."
+      },
+      "cotton": {
+        "name": "പരുത്തി",
+        "aliases": [
+          "cotton",
+          "kapas",
+          "कपास",
+          "कॉटन"
+        ],
+        "farmer_queries": [
+          "പരുത്തി വില"
+        ],
+        "simple_explanation": "Cotton price depends on quality, variety, market and date."
+      }
+    },
+    "market_help": {
+      "title": "ഇന്നത്തെ വിപണി വില",
+      "ask_location": "ഏത് മാർക്കറ്റിന്റെയോ ജില്ലയുടെയോ വിലയാണ് നോക്കേണ്ടത്?",
+      "show_fields": "മാർക്കറ്റ്, തീയതി, വിള/ഇനം, കുറഞ്ഞ വില, കൂടിയ വില, മോഡൽ വില എന്നിവ കാണിക്കും.",
+      "msp_explain": "MSPയും ഇന്നത്തെ വിപണി വിലയും ഒരുപോലെയല്ല. രണ്ടും പ്രത്യേകം കാണിക്കും.",
+      "no_data": "ഈ വിപണിയിലും വിളയ്ക്കും പുതിയ ഔദ്യോഗിക വില കണ്ടെത്താനായില്ല. അടുത്തുള്ള വിപണി നോക്കാം."
+    },
+    "scheme_help": {
+      "title": "നിങ്ങൾക്ക് ലഭിക്കാവുന്ന സർക്കാർ പദ്ധതികൾ",
+      "ask": "നിങ്ങളുടെ സംസ്ഥാനം, വിള, ആവശ്യം എന്നിവ പറയൂ—പണം, ഇൻഷുറൻസ്, വായ്പ, ജലസേചനം അല്ലെങ്കിൽ യന്ത്രം.",
+      "source_label": "ഔദ്യോഗിക ഉറവിടം",
+      "eligibility": "യോഗ്യത സംസ്ഥാനം, ഭൂമി, വിള, സീസൺ, മറ്റ് നിയമങ്ങൾ എന്നിവയെ ആശ്രയിച്ചിരിക്കും."
+    },
+    "farmer_query_keywords": [
+      "മണ്ടി വില",
+      "ഇന്നത്തെ വില",
+      "വിളയുടെ വില",
+      "സർക്കാർ വില",
+      "MSP",
+      "മോഡൽ വില",
+      "സർക്കാർ പദ്ധതി",
+      "വിള ഇൻഷുറൻസ്",
+      "കിസാൻ ക്രെഡിറ്റ് കാർഡ്",
+      "എവിടെ വിൽക്കാം",
+      "വാങ്ങുന്നയാൾ"
+    ],
+    "rate_explanations": {
+      "min_price": "Minimum reported market price",
+      "max_price": "Maximum reported market price",
+      "modal_price": "Most commonly reported trading price in the selected market data",
+      "msp": "Government support price; not the same as today's mandi price"
+    },
+    "government_schemes": [
+      {
+        "id": "pm_kisan",
+        "name": "പ്രധാനമന്ത്രി കിസാൻ സമ്മാൻ നിധി",
+        "simple_benefit": "അർഹരായ കർഷക കുടുംബങ്ങൾക്ക് വർഷത്തിൽ ₹6,000."
+      },
+      {
+        "id": "pmfby",
+        "name": "പ്രധാനമന്ത്രി വിള ഇൻഷുറൻസ് പദ്ധതി",
+        "simple_benefit": "അർഹമായ വിളകൾക്ക് വിള ഇൻഷുറൻസ് സഹായം."
+      },
+      {
+        "id": "kcc",
+        "name": "കിസാൻ ക്രെഡിറ്റ് കാർഡ്",
+        "simple_benefit": "അർഹരായ കർഷകർക്ക് കാർഷിക വായ്പാ സൗകര്യം."
+      },
+      {
+        "id": "pm_kusum",
+        "name": "പി.എം.-കുസും",
+        "simple_benefit": "അർഹമായ സൗരോർജ്ജ, കാർഷിക പമ്പുകൾക്ക് സഹായം."
+      },
+      {
+        "id": "soil_health_card",
+        "name": "മണ്ണ് ആരോഗ്യ കാർഡ്",
+        "simple_benefit": "മണ്ണ് പരിശോധനയും പോഷക വിവരങ്ങളും."
+      },
+      {
+        "id": "aif",
+        "name": "കാർഷിക അടിസ്ഥാന സൗകര്യ നിധി",
+        "simple_benefit": "അർഹമായ കാർഷിക അടിസ്ഥാന സൗകര്യ പദ്ധതികൾക്ക് സാമ്പത്തിക സഹായം."
+      }
+    ]
+  },
+  "_data_notes": {
+    "version": "2.0",
+    "purpose": "Human-friendly multilingual agriculture knowledge for voice and text assistance.",
+    "rate_rule": "MSP and today's mandi price are different. Never present MSP as a live market price.",
+    "live_market_rule": "Fetch current mandi prices at runtime from official market data. Do not hard-code today's mandi price in this JSON.",
+    "market_sources": [
+      {
+        "name": "Open Government Data India - Current Daily Mandi Prices",
+        "url": "https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi",
+        "fields": [
+          "state",
+          "district",
+          "market",
+          "commodity",
+          "variety",
+          "grade",
+          "arrival_date",
+          "min_price",
+          "max_price",
+          "modal_price",
+          "unit"
+        ]
+      },
+      {
+        "name": "e-NAM",
+        "url": "https://enam.gov.in/",
+        "fields": [
+          "market",
+          "commodity",
+          "price",
+          "trade_date",
+          "quality",
+          "quantity"
+        ]
+      }
+    ],
+    "scheme_rule": "Show official source, eligibility, benefit and current status/deadline. Re-check the official source before saying a scheme is open."
+  },
+  "intent_keywords": {
+    "check_market_rate": [
+      "today price",
+      "today rate",
+      "market price",
+      "mandi rate",
+      "crop rate",
+      "MSP",
+      "modal price",
+      "minimum price",
+      "maximum price",
+      "government rate",
+      "farmer scheme",
+      "new scheme",
+      "crop insurance",
+      "KCC",
+      "PM KISAN",
+      "where should I sell",
+      "find buyer"
+    ],
+    "check_scheme": [
+      "government scheme",
+      "govt scheme",
+      "farmer scheme",
+      "new scheme",
+      "scheme eligibility",
+      "सरकारी योजना",
+      "किसान योजना",
+      "नई योजना",
+      "योजना की पात्रता",
+      "फसल बीमा",
+      "KCC",
+      "PM KISAN"
+    ],
+    "compare_markets": [
+      "compare mandis",
+      "best mandi",
+      "nearby market",
+      "better price",
+      "highest price",
+      "पास की मंडी",
+      "सबसे अच्छा भाव",
+      "अच्छा भाव",
+      "बाजार तुलना"
+    ],
+    "understand_price": [
+      "what is modal price",
+      "what is MSP",
+      "minimum price meaning",
+      "maximum price meaning",
+      "मॉडल भाव क्या है",
+      "MSP क्या है",
+      "न्यूनतम भाव क्या है",
+      "अधिकतम भाव क्या है"
+    ],
+    "sell_crop": [
+      "sell my crop",
+      "where should I sell",
+      "find buyer",
+      "buyer for my crop",
+      "फसल बेचनी है",
+      "कहां बेचूं",
+      "खरीदार चाहिए",
+      "मेरी फसल कौन खरीदेगा"
+    ],
+    "report_problem": [
+      "fraud",
+      "fake buyer",
+      "wrong rate",
+      "bad product",
+      "adulterated fertilizer",
+      "धोखा",
+      "फर्जी खरीदार",
+      "गलत भाव",
+      "खराब खाद",
+      "नकली दवा"
+    ]
+  }
+}
