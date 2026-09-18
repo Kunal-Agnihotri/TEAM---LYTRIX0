@@ -1480,305 +1480,85 @@
                  MAIN CONTENT
             ================================================== -->
 <main class="main">
-<!-- =============================================
-                     MAIN PANEL
-                ============================================== -->
-<div class="main-panel">
-<!-- =========================================
-                         START MESSAGE
-                    ========================================== -->
-<div class="start-message">
-<h1>
-
-                            Let's get you
-                            <br/>
-                            started
-
-                        </h1>
-</div>
-</div>
-<!-- =============================================
-                     MENU TAB
-                ============================================== -->
-<button class="menu-tab" id="menuTab" title="Open menu">
+<section class="page-panel">
+<h1>Basket</h1>
+<p>Items added to your basket will appear here.</p>
+</section>
+<button aria-label="Open menu" class="menu-tab" id="menuTab">
 <svg viewbox="0 0 24 24">
-<path d="M9 5l7 7-7 7">
-</path>
+<path d="M8 5l8 7-8 7"></path>
 </svg>
 </button>
-<!-- =============================================
-                     SIDE MENU
-                ============================================== -->
 <aside class="side-menu" id="sideMenu">
-<div class="side-brand">
-
-                        Bridge
-
-                    </div>
+<div class="side-brand">Bridge</div>
 <div class="menu-items">
-<!-- HOME -->
-<button class="menu-item active" onclick="window.location.href='farmerspage.html'">
+<button class="menu-item" onclick="window.location.href='farmerspage.html'">
 <svg viewbox="0 0 24 24">
-<path d="M3 10.5L12 3l9 7.5">
-</path>
-<path d="M5 9.5V21h14V9.5">
-</path>
-<path d="M9 21v-7h6v7">
-</path>
+<path d="m3 10 9-7 9 7"></path>
+<path d="M5 9v11h14V9"></path>
+<path d="M9 20v-6h6v6"></path>
 </svg>
-
-
-                            Home
-
-
-                        </button>
-<!-- MARKET -->
+                    Home
+                </button>
 <button class="menu-item" onclick="window.location.href='farmerspage_market.html'">
 <svg viewbox="0 0 24 24">
-<rect height="6" width="3" x="4" y="14">
-</rect>
-<rect height="10" width="3" x="10" y="10">
-</rect>
-<rect height="15" width="3" x="16" y="5">
-</rect>
+<circle cx="9" cy="9" r="5"></circle>
+<path d="M13 13l7 7"></path>
+<path d="M6.5 9h5"></path>
+<path d="M9 6.5v5"></path>
 </svg>
-
-
-                            Market
-
-
-                        </button>
-<!-- BUY -->
+                    Market
+                </button>
 <button class="menu-item" onclick="window.location.href='farmerspage_buy.html'">
 <svg viewbox="0 0 24 24">
-<path d="M4 7h16l-1.5 13h-13z">
-</path>
-<path d="M8 7a4 4 0 018 0">
-</path>
+<path d="M5 7h14v13H5z"></path>
+<path d="M8 7V4h8v3"></path>
 </svg>
-
-
-                            Buy
-
-
-                        </button>
-<!-- ORDERS -->
+                    Buy
+                </button>
 <button class="menu-item" onclick="window.location.href='farmerspage_orders.html'">
 <svg viewbox="0 0 24 24">
-<path d="M6 3h9l4 4v14H6z">
-</path>
-<path d="M15 3v5h4">
-</path>
-<path d="M9 12h7">
-</path>
-<path d="M9 15h7">
-</path>
-<path d="M9 18h5">
-</path>
+<path d="M4 7h16v13H4z"></path>
+<path d="M8 7V4h8v3"></path>
+<path d="M8 12h8"></path>
 </svg>
-
-
-                            Orders
-
-
-                        </button>
-<!-- DEALS -->
+                    Orders
+                </button>
 <button class="menu-item" onclick="window.location.href='farmerspage_deals.html'">
 <svg viewbox="0 0 24 24">
-<path d="M5 7h14v14H5z">
-</path>
-<path d="M8 7V4h8v3">
-</path>
-<path d="M8 12h8">
-</path>
-<path d="M8 16h5">
-</path>
+<path d="M5 7h14v14H5z"></path>
+<path d="M8 7V4h8v3"></path>
+<path d="M8 12h8"></path>
+<path d="M8 16h5"></path>
 </svg>
-
-
-                            Deals
-
-
-                        </button>
-<!-- HELP -->
+                    Deals
+                </button>
 <button class="menu-item" onclick="window.location.href='farmerspage_help.html'">
 <svg viewbox="0 0 24 24">
-<path d="M12 21a9 9 0 100-18 9 9 0 000 18z">
-</path>
-<path d="M9.7 9a2.4 2.4 0 014.6 1c0 1.7-2.3 2-2.3 3.4">
-</path>
-<path d="M12 17h.01">
-</path>
+<path d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
+<path d="M9.7 9a2.4 2.4 0 014.6 1c0 1.7-2.3 2-2.3 3.4"></path>
+<path d="M12 17h.01"></path>
 </svg>
-
-
-                            Help
-
-
-                        </button>
-</div>
+                    Help
+                </button>
 <div class="menu-separator"></div>
-<!-- LOGOUT -->
+<button class="menu-item" onclick="window.location.href='farmerspage_profile.html'">
+<svg viewbox="0 0 24 24">
+<circle cx="12" cy="8" r="3.5"></circle>
+<path d="M5 20c.8-4 3.2-6 7-6s6.2 2 7 6"></path>
+</svg>
+                    Profile
+                </button>
 <button class="menu-item" id="logoutButton" onclick="window.location.href='login.html'">
 <svg viewbox="0 0 24 24">
-<path d="M4 4h8v16H4z">
-</path>
-<path d="M11 12h9">
-</path>
-<path d="M16 8l4 4-4 4">
-</path>
+<path d="M10 17l5-5-5-5"></path>
+<path d="M15 12H3"></path>
+<path d="M21 3v18"></path>
 </svg>
-
-
-                        Logout
-
-
-                    </button>
+                    Logout
+                </button>
+</div>
 </aside>
-<!-- =============================================
-                     AI BUTTON
-                ============================================== -->
-<button class="ai-button" id="aiButton" title="Aashi - Your AI Companion">
-<div class="ai-circle">
-<svg viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="8">
-</circle>
-<circle cx="9" cy="10" r="1">
-</circle>
-<circle cx="15" cy="10" r="1">
-</circle>
-<path d="M8.5 14.5c1.8 1.8 5.2 1.8 7 0">
-</path>
-<path d="M12 4V2">
-</path>
-</svg>
-</div>
-<span class="ai-text">
-
-                        AI
-
-                    </span>
-</button>
-<!-- =============================================
-                     AASHI AI COMPANION
-                ============================================== -->
-<section class="ai-panel" id="aiPanel">
-<!-- =========================================
-                         AI HEADER
-                    ========================================== -->
-<div class="ai-header">
-<div class="ai-header-icon">
-<svg viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="8">
-</circle>
-<circle cx="9" cy="10" r="1">
-</circle>
-<circle cx="15" cy="10" r="1">
-</circle>
-<path d="M8.5 14.5c1.8 1.8 5.2 1.8 7 0">
-</path>
-</svg>
-</div>
-<!-- CHANGED TITLE -->
-<span class="ai-header-title">
-
-                            Aashi - Your AI Companion
-
-                        </span>
-<button class="ai-close" id="aiClose" title="Close">
-
-
-                            ×
-
-
-                        </button>
-</div>
-<!-- =========================================
-                         EMPTY CHAT AREA
-
-                         YOUR AI CODE CAN BE INTEGRATED HERE LATER
-                    ========================================== -->
-<div class="chat" id="chat">
-<!--
-                            Empty intentionally.
-
-                            Your AI responses will be
-                            inserted here later.
-                        -->
-</div>
-<!-- =========================================
-                         CHAT INPUT
-                    ========================================== -->
-<div class="chat-input-area">
-<!-- MICROPHONE -->
-<button class="mic" title="Voice input">
-<svg viewbox="0 0 24 24">
-<rect height="11" rx="3" width="6" x="9" y="3">
-</rect>
-<path d="M5 11a7 7 0 0014 0">
-</path>
-<path d="M12 18v3">
-</path>
-<path d="M8 21h8">
-</path>
-</svg>
-</button>
-<!-- TEXT INPUT -->
-<input class="chat-input" id="chatInput" placeholder="Type..." type="text"/>
-<!-- SEND -->
-<button class="send" id="sendButton">
-<svg viewbox="0 0 24 24">
-<path d="M4 4l16 8-16 8 3-8z">
-</path>
-<path d="M7 12h13">
-</path>
-</svg>
-</button>
-</div>
-</section>
-<!-- NOTIFICATIONS POPUP -->
-<div class="notification-overlay" id="notificationOverlay">
-<div aria-labelledby="notificationTitle" aria-modal="true" class="notification-panel" role="dialog">
-<div class="notification-header">
-<div>
-<h2 id="notificationTitle">Notifications</h2>
-<p>Recent updates from Bridge.</p>
-</div>
-<button aria-label="Close notifications" class="notification-close" id="closeNotifications">
-<svg viewbox="0 0 24 24">
-<path d="M6 6l12 12"></path>
-<path d="M18 6L6 18"></path>
-</svg>
-</button>
-</div>
-<div class="notification-list">
-<div class="notification-item">
-<div class="notification-dot"></div>
-<div>
-<h3>New deal available</h3>
-<p>A buyer has posted a new deal that may match your farm produce.</p>
-<span>Today</span>
-</div>
-</div>
-<div class="notification-item">
-<div class="notification-dot"></div>
-<div>
-<h3>Order update</h3>
-<p>Your order has received an update. Check Orders for more details.</p>
-<span>5 days ago</span>
-</div>
-</div>
-<div class="notification-item old">
-<div class="notification-dot"></div>
-<div>
-<h3>Deal reminder</h3>
-<p>A deal you viewed earlier is still available.</p>
-<span>3 weeks ago</span>
-</div>
-</div>
-</div>
-</div>
-</div>
 </main>
 </div>
 </div>

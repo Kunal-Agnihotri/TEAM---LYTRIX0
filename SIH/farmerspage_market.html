@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bridge - Market</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+    --orange:#f6b84a; --orange-light:#ffd987; --cream:#fff9dc;
+    --cream-light:#fffce9; --green:#789b55; --green-dark:#628543;
+    --green-light:#b8cd91; --text:#566b49; --muted:#7d8c72;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;min-height:100%;}
+body{font-family:"Inter",Arial,sans-serif;background:var(--cream);color:var(--text);}
+.app{min-height:100vh;background:var(--cream);}
+.topbar{
+    height:78px;padding:0 30px;display:flex;align-items:center;
+    background:var(--cream-light);border-bottom:1px solid rgba(98,133,67,.10);
+}
+.bridge-name{font-size:28px;font-weight:700;letter-spacing:-.8px;color:var(--green-dark);}
+.top-icons{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.top-icon{
+    width:36px;height:36px;border:0;border-radius:50%;background:transparent;
+    color:var(--green-dark);display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.top-icon:hover{background:rgba(120,155,85,.10);}
+.top-icon svg,.profile svg{
+    width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;
+    stroke-linecap:round;stroke-linejoin:round;
+}
+.profile{
+    width:40px;height:40px;margin-left:3px;border:0;border-radius:50%;
+    background:var(--green);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.profile svg{stroke:white;}
+.main{position:relative;min-height:calc(100vh - 78px);padding:24px 18px 18px;}
+.page-panel{
+    min-height:calc(100vh - 120px);border-radius:24px;background:var(--cream-light);
+    border:1px solid rgba(98,133,67,.12);padding:34px 38px;
+}
+.page-panel h1{color:var(--green-dark);font-size:31px;letter-spacing:-.8px;}
+.page-panel p{margin-top:8px;color:var(--muted);font-size:13px;}
+.menu-tab{
+    position:fixed;left:0;top:50%;transform:translateY(-50%);width:40px;height:105px;
+    border:0;border-radius:0 12px 12px 0;background:var(--orange);color:white;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:20;
+}
+.menu-tab svg{width:20px;height:20px;fill:none;stroke:white;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.side-menu{
+    position:fixed;top:0;left:0;width:235px;height:100vh;padding:26px 16px;
+    background:var(--orange);transform:translateX(-100%);transition:transform .28s ease;
+    z-index:30;box-shadow:7px 0 24px rgba(150,95,10,.14);
+}
+.side-menu.open{transform:translateX(0);}
+.side-brand{margin:6px 14px 28px;color:white;font-size:25px;font-weight:700;letter-spacing:-.5px;}
+.menu-items{display:flex;flex-direction:column;gap:4px;}
+.menu-item{
+    width:100%;height:54px;border:0;border-radius:11px;background:transparent;color:white;
+    display:flex;align-items:center;gap:14px;padding:0 14px;text-align:left;
+    font:600 16px "Inter",Arial,sans-serif;cursor:pointer;
+}
+.menu-item:hover,.menu-item.active{background:rgba(255,255,255,.24);}
+.menu-item svg{
+    width:20px;height:20px;flex-shrink:0;fill:none;stroke:white;stroke-width:1.8;
+    stroke-linecap:round;stroke-linejoin:round;
+}
+.menu-separator{height:1px;margin:22px 8px;background:rgba(255,255,255,.35);}
+
+/* Notifications popup */
+.notification-overlay{
+    position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end;align-items:flex-start;
+    padding:88px 28px 28px;background:rgba(63,76,52,.10);
+    opacity:0;visibility:hidden;pointer-events:none;transition:.2s ease;
+}
+.notification-overlay.open{opacity:1;visibility:visible;pointer-events:auto;}
+.notification-panel{
+    width:390px;max-width:calc(100vw - 36px);max-height:calc(100vh - 115px);
+    overflow:hidden;border-radius:18px;background:var(--cream-light);
+    border:1px solid rgba(98,133,67,.15);box-shadow:0 14px 35px rgba(70,85,55,.20);
+    transform:translateY(-8px);transition:.2s ease;
+}
+.notification-overlay.open .notification-panel{transform:translateY(0);}
+.notification-header{
+    display:flex;align-items:center;justify-content:space-between;gap:15px;
+    padding:18px 19px;background:var(--orange);color:white;
+}
+.notification-header h2{font-size:18px;font-weight:700;}
+.notification-header p{margin-top:4px;font-size:11px;opacity:.9;}
+.notification-close{
+    width:32px;height:32px;border:0;border-radius:50%;background:rgba(255,255,255,.20);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.notification-close:hover{background:rgba(255,255,255,.32);}
+.notification-close svg{width:17px;height:17px;fill:none;stroke:white;stroke-width:2;stroke-linecap:round;}
+.notification-list{max-height:calc(100vh - 210px);overflow-y:auto;padding:7px 0;}
+.notification-item{display:flex;gap:12px;padding:16px 18px;border-bottom:1px solid rgba(98,133,67,.09);}
+.notification-item:last-child{border-bottom:0;}
+.notification-dot{width:8px;height:8px;margin-top:6px;flex-shrink:0;border-radius:50%;background:var(--green);}
+.notification-item h3{color:var(--green-dark);font-size:13px;font-weight:700;}
+.notification-item p{margin-top:5px;color:var(--muted);font-size:11px;line-height:1.45;}
+.notification-item span{display:block;margin-top:7px;color:#9aa58f;font-size:10px;}
+.notification-item.old{opacity:.78;}
+
+@media(max-width:650px){
+    .topbar{padding:0 18px;}
+    .page-panel{padding:25px 22px;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+<div class="bridge-name">Bridge</div>
+<div class="top-icons">
+<button aria-label="Basket" class="top-icon" onclick="window.location.href='farmerspage_basket.html'" title="Basket"><svg viewbox="0 0 24 24">
+<path d="M4 9h16l-1.5 11h-13z"></path>
+<path d="M8 9l2-5h4l2 5"></path>
+<path d="M9 13v4"></path><path d="M12 13v4"></path><path d="M15 13v4"></path>
+</svg></button><button aria-label="Notifications" class="top-icon" id="notificationButton">
+<svg viewbox="0 0 24 24">
+<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+<path d="M10 21h4"></path>
+</svg>
+</button>
+<button aria-label="Profile" class="profile" onclick="window.location.href='farmerspage_profile.html'" title="Profile">
+<svg viewbox="0 0 24 24">
+<circle cx="12" cy="8" r="3.5"></circle>
+<path d="M5 20c.8-4 3.2-6 7-6s6.2 2 7 6"></path>
+</svg>
+</button>
+</div>
+</header>
+<main class="main">
+<section class="page-panel">
+<h1>Market</h1>
+<p>Deals posted by industries will appear here.</p>
+</section>
+<button aria-label="Open menu" class="menu-tab" id="menuTab">
+<svg viewbox="0 0 24 24"><path d="M8 5l8 7-8 7"></path></svg>
+</button>
+<aside class="side-menu" id="sideMenu">
+<div class="side-brand">Bridge</div>
+<div class="menu-items">
+<button class="menu-item" onclick="window.location.href='farmerspage.html'">
+<svg viewbox="0 0 24 24"><path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-6h6v6"></path></svg>
+                    Home
+                </button>
+<button active="" class="menu-item" onclick="window.location.href='farmerspage_market.html'">
+<svg viewbox="0 0 24 24"><circle cx="9" cy="9" r="5"></circle><path d="M13 13l7 7"></path><path d="M6.5 9h5"></path><path d="M9 6.5v5"></path></svg>
+                    Market
+                </button>
+<button class="menu-item" onclick="window.location.href='farmerspage_buy.html'">
+<svg viewbox="0 0 24 24"><path d="M5 7h14v13H5z"></path><path d="M8 7V4h8v3"></path></svg>
+                    Buy
+                </button>
+<button class="menu-item" onclick="window.location.href='farmerspage_orders.html'">
+<svg viewbox="0 0 24 24"><path d="M4 7h16v13H4z"></path><path d="M8 7V4h8v3"></path><path d="M8 12h8"></path></svg>
+                    Orders
+                </button>
+<button class="menu-item" onclick="window.location.href='farmerspage_deals.html'">
+<svg viewbox="0 0 24 24"><path d="M5 7h14v14H5z"></path><path d="M8 7V4h8v3"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg>
+                    Deals
+                </button>
+<button class="menu-item" onclick="window.location.href='farmerspage_help.html'">
+<svg viewbox="0 0 24 24"><path d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path><path d="M9.7 9a2.4 2.4 0 014.6 1c0 1.7-2.3 2-2.3 3.4"></path><path d="M12 17h.01"></path></svg>
+                    Help
+                </button>
+<div class="menu-separator"></div>
+<button class="menu-item" onclick="window.location.href='farmerspage_profile.html'">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.8-4 3.2-6 7-6s6.2 2 7 6"></path></svg>
+                    Profile
+                </button>
+<button class="menu-item" id="logoutButton" onclick="window.location.href='login.html'">
+<svg viewbox="0 0 24 24"><path d="M10 17l5-5-5-5"></path><path d="M15 12H3"></path><path d="M21 3v18"></path></svg>
+                    Logout
+                </button>
+</div>
+</aside>
+</main>
+<div class="notification-overlay" id="notificationOverlay">
+<div aria-labelledby="notificationTitle" aria-modal="true" class="notification-panel" role="dialog">
+<div class="notification-header">
+<div>
+<h2 id="notificationTitle">Notifications</h2>
+<p>Recent updates from Bridge.</p>
+</div>
+<button aria-label="Close notifications" class="notification-close" id="closeNotifications">
+<svg viewbox="0 0 24 24"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+</button>
+</div>
+<div class="notification-list">
+<div class="notification-item">
+<div class="notification-dot"></div>
+<div>
+<h3>New deal available</h3>
+<p>A buyer has posted a new deal that may match your farm produce.</p>
+<span>Today</span>
+</div>
+</div>
+<div class="notification-item">
+<div class="notification-dot"></div>
+<div>
+<h3>Order update</h3>
+<p>Your order has received an update. Check Orders for more details.</p>
+<span>5 days ago</span>
+</div>
+</div>
+<div class="notification-item old">
+<div class="notification-dot"></div>
+<div>
+<h3>Deal reminder</h3>
+<p>A deal you viewed earlier is still available.</p>
+<span>3 weeks ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+const menuTab = document.getElementById("menuTab");
+const sideMenu = document.getElementById("sideMenu");
+
+menuTab.addEventListener("click", function(){
+    sideMenu.classList.toggle("open");
+    menuTab.style.display = sideMenu.classList.contains("open") ? "none" : "flex";
+});
+
+document.addEventListener("click", function(event){
+    if(sideMenu.classList.contains("open") &&
+       !sideMenu.contains(event.target) &&
+       !menuTab.contains(event.target)){
+        sideMenu.classList.remove("open");
+        menuTab.style.display = "flex";
+    }
+});
+
+const notificationButton = document.getElementById("notificationButton");
+const notificationOverlay = document.getElementById("notificationOverlay");
+const closeNotifications = document.getElementById("closeNotifications");
+
+notificationButton.addEventListener("click", function(event){
+    event.stopPropagation();
+    notificationOverlay.classList.add("open");
+});
+
+closeNotifications.addEventListener("click", function(){
+    notificationOverlay.classList.remove("open");
+});
+
+notificationOverlay.addEventListener("click", function(event){
+    if(event.target === notificationOverlay){
+        notificationOverlay.classList.remove("open");
+    }
+});
+
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        notificationOverlay.classList.remove("open");
+    }
+});
+
+document.getElementById("logoutButton").addEventListener("click", function(){
+    sessionStorage.removeItem("farmerLoggedIn");
+    sessionStorage.removeItem("sellerLoggedIn");
+    sessionStorage.removeItem("buyerLoggedIn");
+    sessionStorage.removeItem("teamLoggedIn");
+    window.location.replace("login.html");
+});
+</script>
+</body>
+</html>
