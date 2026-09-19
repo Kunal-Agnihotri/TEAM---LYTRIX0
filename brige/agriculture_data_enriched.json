@@ -1,0 +1,36 @@
+{
+  "en": {
+    "friend_intro": "Hello! I am Aashi, your dedicated digital partner, here to guide you respectfully through every step of your farming and business journey.",
+    "greeting_response": "Hello! It is wonderful to hear from you. I am Aashi, your empathetic companion. How may I assist your agricultural operations today?",
+    "auth_login": "Please provide your ID and registered mobile number so I can securely assist you.",
+    "auth_success": "Verification successful! Welcome to your secure dashboard.",
+    "dashboard_home": "You are now on your farm command center. Would you like to list a new crop batch or check market rates?",
+    "crop_knowledge": {
+      "paddy": { "name": "Paddy / Rice", "msp": "₹2,441 per quintal" },
+      "wheat": { "name": "Wheat", "msp": "₹2,585 per quintal" },
+      "maize": { "name": "Maize / Corn", "msp": "₹2,410 per quintal" }
+    }
+  },
+  "hi": {
+    "friend_intro": "नमस्ते जी! मैं आशि हूँ, आपकी डिजिटल सहयात्री।",
+    "greeting_response": "नमस्ते! आपकी आवाज़ सुनकर बहुत खुशी हुई। मैं आशि हूँ, आपकी सहयात्री। आज मैं आपकी किस प्रकार सहायता कर सकती हूँ?",
+    "auth_login": "कृपया अपनी किसान आईडी और फोन नंबर दर्ज करें।",
+    "auth_success": "सत्यापन सफल रहा! आपका स्वागत है।"
+  },
+  "pa": {
+    "friend_intro": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਮੈਂ ਆਸ਼ੀ ਹਾਂ, ਤੁਹਾਡੀ ਡਿਜੀਟਲ ਸਹਿਯੋਗੀ।",
+    "greeting_response": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਤੁਹਾਡੀ ਆਵਾਜ਼ ਸੁਣ ਕੇ ਬਹੁਤ ਖੁਸ਼ੀ ਹੋਈ। ਮੈਂ ਆਸ਼ੀ ਹਾਂ, ਤੁਹਾਡੀ ਸਹਿਯੋਗੀ।"
+  },
+  "mr": {
+    "friend_intro": "नमस्कार! मी आशि आहे, आपली डिजिटल सहाय्यक.",
+    "greeting_response": "नमस्कार! आपला आवाज ऐकून खूप आनंद झाला. मी आशि आहे, आपली सहाय्यक."
+  },
+  "ta": {
+    "friend_intro": "வணக்கம்! நான் ஆஷி, உங்களின் டிஜிட்டல் உதவியாளர்.",
+    "greeting_response": "வணக்கம்! உங்களின் குரலைக் கேட்பதில் மிக்க மகிழ்ச்சி. நான் ஆஷி, உங்கள் உதவியாளர்."
+  },
+  "te": {
+    "friend_intro": "నమస్కారం! నేను ఆషిని, మీ డిజిటల్ సహచరురాలిని.",
+    "greeting_response": "నమస్కారం! మీ మాట వినడం చాలా సంతోషంగా ఉంది. నేను ఆషిని, మీ సహాయకురాలిని."
+  }
+}

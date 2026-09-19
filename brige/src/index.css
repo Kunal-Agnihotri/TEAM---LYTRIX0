@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --orange: #f6b84a;
+  --orange-light: #ffd987;
+  --cream: #fff9dc;
+  --cream-light: #fffce9;
+  --green: #789b55;
+  --green-dark: #628543;
+  --green-light: #b8cd91;
+  --text: #566b49;
+}
+

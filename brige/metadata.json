@@ -1,0 +1,6 @@
+{
+  "name": "Bridge - Agricultural Workforce & Contract Platform",
+  "description": "AI-enabled agricultural workforce coordination, buyer contracts, and multilingual AI assistant.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
