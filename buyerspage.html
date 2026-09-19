@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bridge - Buyer</title>
+
+
+    <!-- =========================
+         PROFESSIONAL FONT
+    ========================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           COLOURS
+        ===================================================== */
+
+        :root {
+
+            --orange: #f6b84a;
+            --orange-light: #ffd987;
+
+            --cream: #fff9dc;
+            --cream-light: #fffce9;
+
+            --green: #789b55;
+            --green-dark: #628543;
+            --green-light: #b8cd91;
+
+            --text: #566b49;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+        body {
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        /* =====================================================
+           FULL SCREEN
+           NO OUTER YELLOW BORDER
+        ===================================================== */
+
+        .bridge-frame {
+
+            width: 100vw;
+            height: 100vh;
+
+            padding: 0;
+
+            background:
+                var(--cream);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        /* =====================================================
+           APP
+        ===================================================== */
+
+        .app {
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                var(--cream);
+
+            border-radius: 0;
+
+            overflow: hidden;
+
+            position: relative;
+
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .topbar {
+
+            width: 100%;
+            height: 78px;
+
+            padding: 0 30px;
+
+            background:
+                var(--cream-light);
+
+            display: flex;
+
+            align-items: center;
+
+            border-bottom:
+                1px solid
+                rgba(98, 133, 67, 0.10);
+
+        }
+
+
+        /* =====================================================
+           BRIDGE NAME
+        ===================================================== */
+
+        .bridge-name {
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.8px;
+
+            color:
+                var(--green-dark);
+
+        }
+
+
+        /* =====================================================
+           TOP RIGHT ICONS
+        ===================================================== */
+
+        .top-icons {
+
+            margin-left: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .top-icon {
+
+            width: 36px;
+            height: 36px;
+
+            border: none;
+
+            background: transparent;
+
+            color:
+                var(--green-dark);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+
+        }
+
+
+        .top-icon:hover {
+
+            background:
+                rgba(120, 155, 85, 0.10);
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        .top-icon svg {
+
+            width: 20px;
+            height: 20px;
+
+            stroke:
+                currentColor;
+
+            fill: none;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+
+        /* =====================================================
+           PROFILE
+        ===================================================== */
+
+        .profile {
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background:
+                var(--green);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            margin-left: 3px;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
+        }
+
+
+        .profile:hover {
+
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 4px 10px
+                rgba(98, 133, 67, 0.20);
+
+        }
+
+
+        .profile svg {
+
+            width: 21px;
+            height: 21px;
+
+            stroke: white;
+
+            fill: none;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .main {
+
+            position: relative;
+
+            width: 100%;
+
+            height:
+                calc(100% - 78px);
+
+            background:
+                var(--cream);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =====================================================
+           MAIN PANEL
+        ===================================================== */
+
+        .main-panel {
+
+            position: absolute;
+
+            left: 18px;
+            right: 18px;
+
+            top: 24px;
+            bottom: 18px;
+
+            border-radius: 24px;
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                rgba(98, 133, 67, 0.12);
+
+            box-shadow:
+                inset 0 0 0 1px
+                rgba(255,255,255,0.25);
+
+        }
+
+
+        /* =====================================================
+           START MESSAGE
+        ===================================================== */
+
+        .start-message {
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 300px;
+
+            min-height: 135px;
+
+            border-radius: 20px;
+
+            background:
+                var(--green-light);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(90, 110, 60, 0.08);
+
+        }
+
+
+        .start-message h1 {
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            font-size: 27px;
+
+            line-height: 1.3;
+
+            font-weight: 500;
+
+            letter-spacing: -0.5px;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           MENU TAB
+        ===================================================== */
+
+        .menu-tab {
+
+            position: absolute;
+
+            left: 0;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 40px;
+            height: 105px;
+
+            background:
+                var(--orange);
+
+            border: none;
+
+            border-radius:
+                0 12px 12px 0;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 15;
+
+            box-shadow:
+                3px 3px 10px
+                rgba(190, 120, 20, 0.10);
+
+        }
+
+
+        .menu-tab svg {
+
+            width: 20px;
+            height: 20px;
+
+            stroke: white;
+
+            fill: none;
+
+            stroke-width: 2;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        /* =====================================================
+           SIDE MENU
+        ===================================================== */
+
+        .side-menu {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 235px;
+            height: 100%;
+
+            background:
+                var(--orange);
+
+            z-index: 30;
+
+            padding:
+                26px 16px;
+
+            transform:
+                translateX(-100%);
+
+            transition:
+                transform 0.28s ease;
+
+            box-shadow:
+                7px 0 24px
+                rgba(150, 95, 10, 0.14);
+
+        }
+
+
+        .side-menu.open {
+
+            transform:
+                translateX(0);
+
+        }
+
+
+        /* =====================================================
+           SIDE BRAND
+        ===================================================== */
+
+        .side-brand {
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.5px;
+
+            margin:
+                6px 14px 28px;
+
+        }
+
+
+        /* =====================================================
+           MENU ITEMS
+        ===================================================== */
+
+        .menu-items {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 4px;
+
+        }
+
+
+        .menu-item {
+
+            height: 54px;
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background: transparent;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 0 14px;
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition:
+                background 0.2s ease;
+
+        }
+
+
+        .menu-item:hover {
+
+            background:
+                rgba(255,255,255,0.20);
+
+        }
+
+
+        .menu-item.active {
+
+            background:
+                rgba(255,255,255,0.28);
+
+        }
+
+
+        .menu-item svg {
+
+            width: 20px;
+            height: 20px;
+
+            stroke: white;
+
+            fill: none;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =====================================================
+           SEPARATOR
+        ===================================================== */
+
+        .menu-separator {
+
+            height: 1px;
+
+            background:
+                rgba(255,255,255,0.35);
+
+            margin:
+                22px 8px;
+
+        }
+
+
+        /* =====================================================
+           AI BUTTON
+        ===================================================== */
+
+        .ai-button {
+
+            position: absolute;
+
+            right: 24px;
+            bottom: 20px;
+
+            width: 78px;
+            height: 88px;
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 3px;
+
+        }
+
+
+        .ai-circle {
+
+            width: 54px;
+            height: 54px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-shadow:
+                0 6px 14px
+                rgba(80, 110, 50, 0.14);
+
+        }
+
+
+        .ai-circle svg {
+
+            width: 29px;
+            height: 29px;
+
+            stroke: white;
+
+            fill: none;
+
+            stroke-width: 1.6;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        .ai-text {
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            color:
+                var(--green-dark);
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           AI COMPANION PANEL
+        ===================================================== */
+
+        .ai-panel {
+
+            position: absolute;
+
+            right: 20px;
+            bottom: 18px;
+
+            width: 330px;
+            height: 430px;
+
+            background:
+                var(--cream-light);
+
+            border:
+                2px solid
+                var(--orange);
+
+            border-radius: 21px;
+
+            z-index: 50;
+
+            display: flex;
+
+            flex-direction: column;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                translateY(18px);
+
+            transition:
+                0.24s ease;
+
+            box-shadow:
+                0 14px 32px
+                rgba(100, 75, 20, 0.18);
+
+        }
+
+
+        .ai-panel.open {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           AI HEADER
+        ===================================================== */
+
+        .ai-header {
+
+            height: 60px;
+
+            background:
+                var(--orange);
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                0 15px;
+
+            color: white;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .ai-header-icon {
+
+            width: 34px;
+            height: 34px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.23);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-right: 9px;
+
+        }
+
+
+        .ai-header-icon svg {
+
+            width: 21px;
+            height: 21px;
+
+            stroke: white;
+
+            fill: none;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        /* =====================================================
+           AASHI TITLE
+        ===================================================== */
+
+        .ai-header-title {
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =====================================================
+           CLOSE BUTTON
+        ===================================================== */
+
+        .ai-close {
+
+            margin-left: auto;
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+            line-height: 1;
+
+            padding: 2px 3px;
+
+        }
+
+
+        /* =====================================================
+           EMPTY CHAT AREA
+           
+           No first message anymore.
+        ===================================================== */
+
+        .chat {
+
+            flex: 1;
+
+            padding: 15px;
+
+            overflow-y: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+        }
+
+
+        /* =====================================================
+           FUTURE CHAT MESSAGES
+        ===================================================== */
+
+        .message {
+
+            max-width: 82%;
+
+            padding:
+                10px 13px;
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            font-size: 12px;
+
+            line-height: 1.45;
+
+        }
+
+
+        .ai-message {
+
+            align-self:
+                flex-start;
+
+            background:
+                var(--green-light);
+
+            color:
+                var(--green-dark);
+
+            border-radius:
+                14px 14px 14px 4px;
+
+        }
+
+
+        .user-message {
+
+            align-self:
+                flex-end;
+
+            background:
+                var(--orange-light);
+
+            color:
+                #765923;
+
+            border-radius:
+                14px 14px 4px 14px;
+
+        }
+
+
+        /* =====================================================
+           CHAT INPUT AREA
+        ===================================================== */
+
+        .chat-input-area {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 10px;
+
+            border-top:
+                1px solid
+                #f0dfae;
+
+            background:
+                #fffdf1;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =====================================================
+           MICROPHONE
+        ===================================================== */
+
+        .mic {
+
+            width: 39px;
+            height: 39px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                var(--green-light);
+
+            color:
+                var(--green-dark);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+        }
+
+
+        .mic svg {
+
+            width: 18px;
+            height: 18px;
+
+            stroke:
+                currentColor;
+
+            fill: none;
+
+            stroke-width: 1.9;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        /* =====================================================
+           CHAT TEXT BOX
+        ===================================================== */
+
+        .chat-input {
+
+            flex: 1;
+
+            height: 39px;
+
+            border:
+                1px solid
+                #d9dfc7;
+
+            border-radius: 11px;
+
+            padding:
+                0 11px;
+
+            outline: none;
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
+            font-size: 12px;
+
+            color:
+                var(--text);
+
+            background:
+                white;
+
+        }
+
+
+        .chat-input:focus {
+
+            border-color:
+                var(--green-light);
+
+        }
+
+
+        /* =====================================================
+           SEND BUTTON
+        ===================================================== */
+
+        .send {
+
+            width: 39px;
+            height: 39px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                var(--green);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+        }
+
+
+        .send svg {
+
+            width: 17px;
+            height: 17px;
+
+            stroke: white;
+
+            fill: none;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .topbar {
+
+                height: 68px;
+
+                padding:
+                    0 12px;
+
+            }
+
+
+            .main {
+
+                height:
+                    calc(100% - 68px);
+
+            }
+
+
+            .bridge-name {
+
+                font-size: 23px;
+
+            }
+
+
+            .top-icon {
+
+                width: 36px;
+                height: 36px;
+
+            }
+
+
+            .profile {
+
+                width: 39px;
+                height: 39px;
+
+            }
+
+
+            .main-panel {
+
+                top: 12px;
+
+                left: 9px;
+
+                right: 9px;
+
+                bottom: 9px;
+
+            }
+
+
+            .start-message {
+
+                width: 230px;
+
+                min-height: 110px;
+
+            }
+
+
+            .start-message h1 {
+
+                font-size: 23px;
+
+            }
+
+
+            .ai-button {
+
+                right: 8px;
+
+                bottom: 8px;
+
+            }
+
+
+            .ai-panel {
+
+                left: 12px;
+
+                right: 12px;
+
+                bottom: 14px;
+
+                width: auto;
+
+            }
+
+
+            .ai-header-title {
+
+                font-size: 14px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FULL SCREEN BRIDGE
+    ====================================================== -->
+
+    <div class="bridge-frame">
+
+
+        <div class="app">
+
+
+            <!-- =================================================
+                 TOP BAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <div class="bridge-name">
+
+                    Bridge
+
+                </div>
+
+
+                <div class="top-icons">
+
+
+                    <!-- =========================================
+                         DEALS / UNCONFIRMED ORDERS
+                    ========================================== -->
+
+                    <button
+                        class="top-icon"
+                        title="Deals and Unconfirmed Orders">
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M5 3h14v18H5z">
+                            </path>
+
+                            <path
+                                d="M8 8h8">
+                            </path>
+
+                            <path
+                                d="M8 12h8">
+                            </path>
+
+                            <path
+                                d="M8 16h4">
+                            </path>
+
+                            <path
+                                d="M15 16l2 2 4-4">
+                            </path>
+
+                        </svg>
+
+
+                    </button>
+
+
+
+
+
+                    <!-- =========================================
+                         NOTIFICATIONS
+                    ========================================== -->
+
+                    <button
+                        class="top-icon"
+                        title="Notifications">
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M6 9a6 6 0 0112 0v5l2 3H4l2-3z">
+                            </path>
+
+                            <path
+                                d="M10 20h4">
+                            </path>
+
+                        </svg>
+
+
+                    </button>
+
+
+
+                    <!-- =========================================
+                         PROFILE
+                    ========================================== -->
+
+                    <button
+                        class="profile"
+                        title="Profile">
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="3.5">
+                            </circle>
+
+                            <path
+                                d="M5 21c.8-4 3.1-6 7-6s6.2 2 7 6">
+                            </path>
+
+                        </svg>
+
+
+                    </button>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 MAIN CONTENT
+            ================================================== -->
+
+            <main class="main">
+
+
+                <!-- =============================================
+                     MAIN PANEL
+                ============================================== -->
+
+                <div class="main-panel">
+
+
+                    <!-- =========================================
+                         START MESSAGE
+                    ========================================== -->
+
+                    <div class="start-message">
+
+
+                        <h1>
+
+                            Let's get you
+                            <br>
+                            started
+
+                        </h1>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     MENU TAB
+                ============================================== -->
+
+                <button
+                    class="menu-tab"
+                    id="menuTab"
+                    title="Open menu">
+
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M9 5l7 7-7 7">
+                        </path>
+
+                    </svg>
+
+
+                </button>
+
+
+
+                <!-- =============================================
+                     SIDE MENU
+                ============================================== -->
+
+                <aside
+                    class="side-menu"
+                    id="sideMenu">
+
+
+                    <div class="side-brand">
+
+                        Bridge
+
+                    </div>
+
+
+                    <div class="menu-items">
+
+
+                        <!-- HOME -->
+
+                        <button
+                            class="menu-item active">
+
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path
+                                    d="M3 10.5L12 3l9 7.5">
+                                </path>
+
+                                <path
+                                    d="M5 9.5V21h14V9.5">
+                                </path>
+
+                                <path
+                                    d="M9 21v-7h6v7">
+                                </path>
+
+                            </svg>
+
+
+                            Home
+
+
+                        </button>
+
+
+
+                        <!-- MARKET -->
+
+                        <button
+                            class="menu-item">
+
+
+                            <svg viewBox="0 0 24 24">
+
+                                <rect
+                                    x="4"
+                                    y="14"
+                                    width="3"
+                                    height="6">
+                                </rect>
+
+                                <rect
+                                    x="10"
+                                    y="10"
+                                    width="3"
+                                    height="10">
+                                </rect>
+
+                                <rect
+                                    x="16"
+                                    y="5"
+                                    width="3"
+                                    height="15">
+                                </rect>
+
+                            </svg>
+
+
+                            Market
+
+
+                        </button>
+
+                        <!-- DEALS -->
+
+                        <button
+                            class="menu-item">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path
+                                    d="M20 12l-8 8-9-9V4h7z">
+                                </path>
+
+                                <circle
+                                    cx="7.5"
+                                    cy="8.5"
+                                    r="1">
+                                </circle>
+
+                            </svg>
+
+                            Deals
+
+                        </button>
+
+
+
+                    </div>
+
+
+
+                    <div class="menu-separator"></div>
+
+
+
+                    <!-- LOGOUT -->
+
+                    <button
+                        class="menu-item"
+                        id="logoutButton">
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M4 4h8v16H4z">
+                            </path>
+
+                            <path
+                                d="M11 12h9">
+                            </path>
+
+                            <path
+                                d="M16 8l4 4-4 4">
+                            </path>
+
+                        </svg>
+
+
+                        Logout
+
+
+                    </button>
+
+
+                </aside>
+
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /*
+            LOGIN / LOGOUT FLOW
+
+            The login page sets farmerLoggedIn before opening this page.
+            We intentionally do not block direct preview of this file,
+            because many HTML preview tools run each file in isolation.
+            Real authentication should be enforced by the backend.
+        */
+
+
+        /* =====================================================
+           SIDE MENU
+        ===================================================== */
+
+        const menuTab =
+            document.getElementById("menuTab");
+
+        const sideMenu =
+            document.getElementById("sideMenu");
+
+
+        menuTab.addEventListener(
+            "click",
+            function () {
+
+                sideMenu.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CLOSE MENU WHEN CLICKING OUTSIDE
+        ===================================================== */
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+
+                if (
+
+                    sideMenu.classList.contains("open")
+
+                    &&
+
+                    !sideMenu.contains(event.target)
+
+                    &&
+
+                    !menuTab.contains(event.target)
+
+                ) {
+
+
+                    sideMenu.classList.remove(
+                        "open"
+                    );
+
+
+                }
+
+            }
+        );
+
+
+
+
+        /* =====================================================
+           LOGOUT
+        ===================================================== */
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        logoutButton.addEventListener(
+            "click",
+            function () {
+
+                sessionStorage.removeItem(
+                    "farmerLoggedIn"
+                );
+
+                sessionStorage.removeItem(
+                    "buyerLoggedIn"
+                );
+
+                window.location.replace(
+                    "login.html"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           MENU ACTIVE STATE
+        ===================================================== */
+
+        const menuItems =
+            document.querySelectorAll(
+                ".menu-item"
+            );
+
+
+        menuItems.forEach(
+            function (item) {
+
+
+                item.addEventListener(
+                    "click",
+                    function () {
+
+
+                        menuItems.forEach(
+                            function (other) {
+
+                                other.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        /* Don't highlight Logout */
+
+                        if (
+                            !item.textContent
+                                .trim()
+                                .includes("Logout")
+                        ) {
+
+
+                            item.classList.add(
+                                "active"
+                            );
+
+
+                        }
+
+                    }
+                );
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

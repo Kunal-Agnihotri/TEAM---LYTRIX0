@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge - Team</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* EXACT BRIDGE PALETTE USED ON THE OTHER PAGES */
+            --orange: #f6b84a;
+            --orange-light: #ffd987;
+
+            --cream: #fff9dc;
+            --cream-light: #fffce9;
+
+            --green: #789b55;
+            --green-dark: #628543;
+            --green-light: #b8cd91;
+
+            --text: #566b49;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        .bridge-frame {
+            width: 100vw;
+            height: 100vh;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app {
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            width: 100%;
+            height: 78px;
+            padding: 0 30px;
+            background: var(--cream-light);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(98, 133, 67, 0.10);
+        }
+
+        .bridge-name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            color: var(--green-dark);
+        }
+
+        .top-icons {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-icon {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            color: var(--green-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .top-icon:hover {
+            background: rgba(120, 155, 85, 0.10);
+            transform: translateY(-1px);
+        }
+
+        .top-icon svg {
+            width: 21px;
+            height: 21px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.9;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* SETTINGS */
+        .settings-icon {
+            width: 22px !important;
+            height: 22px !important;
+        }
+
+        /* PROFILE */
+        .profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 3px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .profile:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(98, 133, 67, 0.20);
+        }
+
+        .profile svg {
+            width: 22px;
+            height: 22px;
+            stroke: white;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* MAIN */
+        .main {
+            position: relative;
+            width: 100%;
+            height: calc(100% - 78px);
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .main-panel {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            top: 24px;
+            bottom: 18px;
+            border-radius: 24px;
+            background: var(--cream-light);
+            border: 1px solid rgba(98, 133, 67, 0.12);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
+            overflow: hidden;
+        }
+
+        /* DASHBOARD WELCOME */
+        .welcome-message {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            min-height: 135px;
+            border-radius: 20px;
+            background: var(--green-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(90, 110, 60, 0.08);
+        }
+
+        .welcome-message h1 {
+            font-size: 27px;
+            line-height: 1.3;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+
+        /* LEFT TAB */
+        .menu-tab {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 105px;
+            background: var(--orange);
+            border: none;
+            border-radius: 0 12px 12px 0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 40;
+            box-shadow: 3px 3px 10px rgba(190, 120, 20, 0.10);
+        }
+
+        .menu-tab svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* SIDE MENU */
+        .side-menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 235px;
+            height: 100%;
+            background: var(--orange);
+            z-index: 50;
+            padding: 26px 16px;
+            transform: translateX(-100%);
+            transition: transform .28s ease;
+            box-shadow: 7px 0 24px rgba(150, 95, 10, 0.14);
+        }
+
+        .side-menu.open {
+            transform: translateX(0);
+        }
+
+        .side-brand {
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 6px 14px 28px;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .menu-item {
+            height: 54px;
+            width: 100%;
+            border: none;
+            border-radius: 11px;
+            background: transparent;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0 14px;
+            font-family: "Inter", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            transition: background .2s ease;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: rgba(255,255,255,0.22);
+        }
+
+        .menu-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .menu-separator {
+            height: 1px;
+            background: rgba(255,255,255,0.35);
+            margin: 22px 8px;
+        }
+
+        /* CONTENT SECTIONS */
+        .section {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 28px;
+            color: var(--text);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h1 {
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--green-dark);
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+
+
+        .field-warning {
+            display: none;
+            margin: 4px 4px 0;
+            color: #e33d36;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .field-warning.show {
+            display: block;
+        }
+
+
+        .password-input-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-input-wrap .form-input {
+            padding-right: 56px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: transparent;
+            color: #628543;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            padding: 0;
+        }
+
+        .password-toggle:hover {
+            background: rgba(120, 155, 85, 0.10);
+        }
+
+        .password-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.9;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        .add-button{width:42px;height:36px;border:0;border-radius:7px;background:#789b55;color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:27px;font-weight:400;line-height:1;margin-right:2px}
+        .add-button:hover{background:#628543}
+        .task-list{
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            width:287px;
+        }
+        .task-card{
+            width:287px;
+            height:170px;
+            min-width:287px;
+            max-width:287px;
+            min-height:170px;
+            max-height:170px;
+            box-sizing:border-box;
+            padding:14px 20px;
+            border-radius:12px;
+            background:#789b55;
+            color:white;
+            overflow:hidden;
+            position:relative;
+            transition:transform .18s ease, box-shadow .18s ease;
+            cursor:pointer;
+        }
+        .task-card:hover{
+            transform:scale(1.035);
+            box-shadow:0 10px 24px rgba(86,107,73,.16);
+        }
+        .task-complete{
+            position:absolute;
+            left:20px;
+            bottom:14px;
+            height:28px;
+            padding:0 12px;
+            border:0;
+            border-radius:7px;
+            background:#fff9dc;
+            color:#628543;
+            font-family:"Inter",Arial,sans-serif;
+            font-size:10px;
+            font-weight:700;
+            letter-spacing:.25px;
+            cursor:pointer;
+            z-index:2;
+            transition:transform .15s ease, background .15s ease;
+        }
+        .task-complete:hover{
+            background:#fffce9;
+            transform:translateY(-1px);
+        }
+        .task-name{font-size:17px;font-weight:700;margin-bottom:6px}
+        .task-deadline,.task-description{font-size:13px;line-height:1.4;margin-top:3px}
+        .task-deadline{font-weight:600}
+        .task-overlay{position:absolute;inset:0;background:rgba(86,107,73,.12);display:none;align-items:center;justify-content:center;z-index:80}
+        .task-overlay.open{display:flex}
+        .new-task-card{width:min(420px,88%);background:#f6b84a;border-radius:18px;padding:22px 24px 20px;box-shadow:0 12px 35px rgba(90,75,35,.18)}
+        .new-task-title{color:white;font-size:25px;font-weight:700;margin-bottom:15px}
+        .task-field{margin-bottom:11px}
+        .task-field label{display:block;color:white;font-size:13px;font-weight:600;margin:0 0 5px 2px}
+        .task-input,.task-textarea{width:100%;border:0;outline:0;border-radius:9px;background:#fff9dc;color:#566b49;font-family:"Inter",Arial,sans-serif;font-size:13px;padding:0 12px}
+        .task-input{height:36px}.task-textarea{height:78px;padding-top:9px;padding-bottom:9px;resize:none}
+        .task-date{cursor:pointer}.task-date::-webkit-calendar-picker-indicator{opacity:1;cursor:pointer}
+        .char-count{color:white;font-size:10px;text-align:right;margin-top:3px}
+        .task-error{color:#d93f38;background:rgba(255,255,255,.72);border-radius:6px;padding:5px 7px;font-size:10px;font-weight:600;margin-bottom:8px;display:none}
+        .task-error.show{display:block}
+        .task-actions{display:flex;justify-content:center;gap:8px;margin-top:9px}
+        .task-submit,.task-cancel{height:38px;border:0;border-radius:9px;padding:0 24px;font-family:"Inter",Arial,sans-serif;font-size:14px;font-weight:700;cursor:pointer}
+        .task-submit{background:#789b55;color:white}.task-submit:hover{background:#628543}
+        .task-cancel{background:rgba(255,255,255,.62);color:#628543}
+
+
+        .task-description {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .task-description.has-note:hover {
+            text-decoration: none;
+        }
+
+        .note-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(86,107,73,.12);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 85;
+        }
+
+        .note-overlay.open {
+            display: flex;
+        }
+
+        .note-card {
+            width: min(420px, 88%);
+            max-height: 70%;
+            overflow-y: auto;
+            background: #f6b84a;
+            border-radius: 18px;
+            padding: 22px 24px;
+            box-shadow: 0 12px 35px rgba(90,75,35,.18);
+        }
+
+        .note-title {
+            color: white;
+            font-size: 23px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .note-content {
+            background: #fff9dc;
+            color: #566b49;
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 14px;
+            line-height: 1.55;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .note-close {
+            display: block;
+            height: 38px;
+            margin: 14px auto 0;
+            padding: 0 25px;
+            border: 0;
+            border-radius: 9px;
+            background: #789b55;
+            color: white;
+            font-family: "Inter", Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .note-close:hover {
+            background: #628543;
+        }
+
+        /* ADD TEAM ACCOUNT FORM */
+        .add-team-wrap {
+            width: min(650px, 88%);
+            margin: 0 auto;
+            background: #ffdda0;
+            border-radius: 22px;
+            padding: 20px 28px 18px;
+        }
+
+        .add-team-title {
+            color: #628543;
+            font-size: 27px;
+            font-weight: 700;
+            margin-bottom: 17px;
+        }
+
+        .form-field {
+            margin-bottom: 10px;
+        }
+
+        .form-field label {
+            display: block;
+            color: #628543;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 5px 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            height: 42px;
+            border: none;
+            outline: none;
+            border-radius: 27px;
+            background: #fff9dc;
+            color: #566b49;
+            padding: 0 18px;
+            font-family: "Inter", Arial, sans-serif;
+            font-size: 14px;
+            box-shadow: inset 0 0 0 1px rgba(98,133,67,.06);
+        }
+
+        .form-input:focus {
+            box-shadow: 0 0 0 2px rgba(120,155,85,.35);
+        }
+
+        .form-input.invalid {
+            box-shadow: 0 0 0 2px rgba(210,80,70,.45);
+        }
+
+        .form-input.valid {
+            box-shadow: 0 0 0 2px rgba(120,155,85,.35);
+        }
+
+        .field-error {
+            display: block;
+            min-height: 0;
+            margin: 2px 4px 0;
+            color: #d94c43;
+            font-size: 11px;
+        }
+
+        .password-rules {
+            margin-top: 10px;
+            padding: 9px 12px;
+            border-radius: 11px;
+            background: rgba(255,255,255,.48);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 14px;
+        }
+
+        .password-rule {
+            color: #628543;
+            font-size: 11px;
+        }
+
+        .password-rule.valid {
+            color: #008f72;
+        }
+
+        .password-rule.invalid {
+            color: #628543;
+        }
+
+        .password-error {
+            min-height: 0;
+            margin: 4px 0 0;
+            color: #e33d36;
+            font-size: 11px;
+        }
+
+        .add-team-button {
+            display: block;
+            min-width: 120px;
+            height: 42px;
+            margin: 10px auto 0;
+            border: none;
+            border-radius: 12px;
+            background: #789b55;
+            color: white;
+            font-family: "Inter", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0 28px;
+            transition: transform .15s ease, background .15s ease;
+        }
+
+        .add-team-button:hover {
+            background: #628543;
+            transform: translateY(-1px);
+        }
+
+        .add-team-message {
+            min-height: 0;
+            text-align: center;
+            margin-top: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .add-team-message.success {
+            color: #008f72;
+        }
+
+        .add-team-message.error {
+            color: #d94c43;
+        }
+
+        @media (max-width: 650px) {
+            .add-team-wrap {
+                width: 92%;
+                padding: 16px 18px 14px;
+            }
+
+            .password-rules {
+                grid-template-columns: 1fr;
+                gap: 3px;
+            }
+
+            .section {
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .topbar {
+                padding: 0 18px;
+            }
+
+            .bridge-name {
+                font-size: 25px;
+            }
+
+            .top-icons {
+                gap: 3px;
+            }
+
+            .main-panel {
+                left: 12px;
+                right: 12px;
+                top: 16px;
+                bottom: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="bridge-frame">
+    <div class="app">
+
+        <header class="topbar">
+            <div class="bridge-name">Bridge</div>
+
+            <div class="top-icons">
+
+                <!-- NEW TASK -->
+                <button class="add-button" id="addTaskButton" title="New task" aria-label="New task">+</button>
+
+                <!-- SETTINGS -->
+                <button class="top-icon" title="Settings" aria-label="Settings">
+                    <svg class="settings-icon" viewBox="0 0 24 24">
+                        <path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z"></path>
+                        <path d="M19.1 13.7a7.5 7.5 0 0 0 0-3.4l2-1.5-2-3.4-2.3 1a7.6 7.6 0 0 0-2.9-1.7L13.6 2h-3.2L10 4.7a7.6 7.6 0 0 0-2.9 1.7l-2.3-1-2 3.4 2 1.5a7.5 7.5 0 0 0 0 3.4l-2 1.5 2 3.4 2.3-1a7.6 7.6 0 0 0 2.9 1.7l.4 2.7h3.2l.4-2.7a7.6 7.6 0 0 0 2.9-1.7l2.3 1 2-3.4-2.1-1.5Z"></path>
+                    </svg>
+                </button>
+
+                <!-- DOCUMENTS -->
+                <button class="top-icon" title="Documents" aria-label="Documents">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 3.5h8l4 4V20.5H6z"></path>
+                        <path d="M14 3.5v5h4"></path>
+                        <path d="M9 12h6M9 15.5h6"></path>
+                    </svg>
+                </button>
+
+                <!-- ACCOUNT -->
+                <button class="profile" title="Account" aria-label="Account">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="3.2"></circle>
+                        <path d="M5.5 20c.8-3.5 3-5.2 6.5-5.2s5.7 1.7 6.5 5.2"></path>
+                    </svg>
+                </button>
+
+            </div>
+        </header>
+
+        <button class="menu-tab" id="menuTab" aria-label="Open menu">
+            <svg viewBox="0 0 24 24">
+                <path d="m9 5 7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <main class="main">
+            <div class="main-panel">
+
+                <!-- DASHBOARD -->
+                <section class="section active" id="dashboard">
+                    <div class="task-list" id="taskList">
+                        <div class="task-card">
+                            <div class="task-name">PEL project</div>
+                            <div class="task-deadline">deadline: 20/09/2026</div>
+                            <div class="task-description has-note" id="pelNote">hello i am keerti verma and i am persuing btech cse from lovely professional university.</div>
+                            <button type="button" class="task-complete" id="pelCompleteButton">TASK COMPLETED</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ANALYTICS -->
+                <section class="section" id="analytics">
+                    <h1>Analytics</h1>
+                    <p>Revenue / payments / loans information will appear here.</p>
+                </section>
+
+                <!-- USER COMPLAINTS -->
+                <section class="section" id="complaints">
+                    <h1>User Complaints</h1>
+                    <p>User-filed complaints and help requests will appear here.</p>
+                </section>
+
+                <!-- REQUEST VERIFICATION -->
+                <section class="section" id="verification">
+                    <h1>Request Verification</h1>
+                    <p>Requests to verify new farmer, user and buyer accounts will appear here.</p>
+                </section>
+
+                <!-- ADD TEAM ACCOUNT -->
+                <section class="section" id="add-team">
+                    <div class="add-team-wrap">
+                        <div class="add-team-title">ADD TEAM:</div>
+
+                        <form id="addTeamForm">
+                            <div class="form-field">
+                                <label for="teamMemberId">member ID:</label>
+                                <input
+                                    class="form-input"
+                                    id="teamMemberId"
+                                    type="text"
+                                    inputmode="text"
+                                    placeholder="name@digits"
+                                    autocomplete="off"
+                                    autocapitalize="off"
+                                    spellcheck="false"
+                                    pattern="[A-Za-z]+@[0-9]+"
+                                    title="Use the format name@digits, for example arjun@1234"
+                                    required
+                                >
+                                <span class="field-error" id="teamMemberIdError"></span>
+                                <div class="field-warning" id="teamMemberIdWarning">
+                                    Only letters before @ and digits after @. Example: name@1234
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="teamContact">contact number:</label>
+                                <input
+                                    class="form-input"
+                                    id="teamContact"
+                                    type="tel"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    placeholder="10 digit contact number"
+                                    autocomplete="off"
+                                    pattern="[0-9]{10}"
+                                    title="Enter exactly 10 digits"
+                                    required
+                                >
+                                <span class="field-error" id="teamContactError"></span>
+                                <div class="field-warning" id="teamContactWarning">
+                                    Enter exactly 10 digits.
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="teamEmail">email:</label>
+                                <input
+                                    class="form-input"
+                                    id="teamEmail"
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    autocomplete="off"
+                                    autocapitalize="off"
+                                    spellcheck="false"
+                                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                                    title="Enter a valid email address"
+                                    required
+                                >
+                                <span class="field-error" id="teamEmailError"></span>
+                                <div class="field-warning" id="teamEmailWarning">
+                                    Enter a complete email address, e.g. name@example.com.
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="teamPassword">Password:</label>
+                                <div class="password-input-wrap">
+                                    <input
+                                        class="form-input"
+                                        id="teamPassword"
+                                        type="password"
+                                        placeholder="Set temporary password"
+                                        autocomplete="new-password"
+                                        autocapitalize="off"
+                                        spellcheck="false"
+                                        minlength="8"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="password-toggle"
+                                        id="teamPasswordToggle"
+                                        aria-label="Show password"
+                                        title="Show password"
+                                    >
+                                        <svg id="eyeIcon" viewBox="0 0 24 24">
+                                            <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+                                            <circle cx="12" cy="12" r="2.5"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div class="password-rules">
+                                    <span class="password-rule" id="teamRuleLength">○ At least 8 characters</span>
+                                    <span class="password-rule" id="teamRuleUpper">○ At least one uppercase letter</span>
+                                    <span class="password-rule" id="teamRuleLower">○ At least one lowercase letter</span>
+                                    <span class="password-rule" id="teamRuleDigit">○ At least one digit</span>
+                                    <span class="password-rule" id="teamRuleSpecial">○ At least one special character</span>
+                                </div>
+
+                                <div class="password-error" id="teamPasswordError"></div>
+                            </div>
+
+                            <button type="submit" class="add-team-button">ADD</button>
+                            <div class="add-team-message" id="addTeamMessage"></div>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- SLIDE-OUT MENU -->
+            <aside class="side-menu" id="sideMenu">
+                <div class="side-brand">Bridge</div>
+
+                <nav class="menu-items">
+
+                    <button class="menu-item active" data-section="dashboard">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="4" y="4" width="6" height="6"></rect>
+                            <rect x="14" y="4" width="6" height="6"></rect>
+                            <rect x="4" y="14" width="6" height="6"></rect>
+                            <rect x="14" y="14" width="6" height="6"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </button>
+
+                    <button class="menu-item" data-section="analytics">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 19V9"></path>
+                            <path d="M10 19V5"></path>
+                            <path d="M16 19v-7"></path>
+                            <path d="M22 19V3"></path>
+                        </svg>
+                        <span>Analytics</span>
+                    </button>
+
+                    <button class="menu-item" data-section="complaints">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 4h14v13H8l-3 3z"></path>
+                            <path d="M8 8h8M8 12h6"></path>
+                        </svg>
+                        <span>User Complaints</span>
+                    </button>
+
+                    <button class="menu-item" data-section="verification">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3l8 3v6c0 4.5-3.1 7.7-8 9-4.9-1.3-8-4.5-8-9V6z"></path>
+                            <path d="m8 12 2.5 2.5L16 9"></path>
+                        </svg>
+                        <span>Request Verification</span>
+                    </button>
+
+                    <button class="menu-item" data-section="add-team">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="3"></circle>
+                            <path d="M3.5 20c.7-3.2 2.4-5 5.5-5s4.8 1.8 5.5 5"></path>
+                            <path d="M18 8v6M15 11h6"></path>
+                        </svg>
+                        <span>Add Team Account</span>
+                    </button>
+
+                    <div class="menu-separator"></div>
+
+                    <button class="menu-item" id="logoutButton">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 5H5v14h5"></path>
+                            <path d="m14 8 4 4-4 4"></path>
+                            <path d="M9 12h9"></path>
+                        </svg>
+                        <span>Logout</span>
+                    </button>
+
+                </nav>
+            </aside>
+
+            <div class="note-overlay" id="noteOverlay">
+                <div class="note-card">
+                    <div class="note-title" id="noteTitle">NOTE</div>
+                    <div class="note-content" id="noteContent"></div>
+                    <button type="button" class="note-close" id="noteClose">CLOSE</button>
+                </div>
+            </div>
+
+            <div class="task-overlay" id="taskOverlay">
+                <div class="new-task-card">
+                    <div class="new-task-title">NEW TASK</div>
+                    <form id="newTaskForm">
+                        <div class="task-field">
+                            <label for="taskName">TASK NAME: *</label>
+                            <input class="task-input" id="taskName" type="text" placeholder="add name" maxlength="80" required>
+                        </div>
+                        <div class="task-field">
+                            <label for="taskDeadline">ADD DEADLINE: *</label>
+                            <input class="task-input task-date" id="taskDeadline" type="date" required>
+                        </div>
+                        <div class="task-field">
+                            <label for="taskDescription">DESCRIPTION:</label>
+                            <textarea class="task-textarea" id="taskDescription" maxlength="100" placeholder="Note..."></textarea>
+                            <div class="char-count"><span id="taskCharCount">0</span>/100 chars</div>
+                        </div>
+                        <div class="task-error" id="taskError"></div>
+                        <div class="task-actions">
+                            <button type="button" class="task-cancel" id="taskCancel">CANCEL</button>
+                            <button type="submit" class="task-submit">ADD</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    const menuTab = document.getElementById("menuTab");
+    const sideMenu = document.getElementById("sideMenu");
+    const menuItems = document.querySelectorAll(".menu-item[data-section]");
+    const sections = document.querySelectorAll(".section");
+
+    menuTab.addEventListener("click", function () {
+        sideMenu.classList.toggle("open");
+
+        const path = menuTab.querySelector("path");
+        if (sideMenu.classList.contains("open")) {
+            path.setAttribute("d", "m15 5-7 7 7 7");
+        } else {
+            path.setAttribute("d", "m9 5 7 7-7 7");
+        }
+    });
+
+    menuItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+            const target = item.dataset.section;
+
+            menuItems.forEach(function (button) {
+                button.classList.remove("active");
+            });
+
+            item.classList.add("active");
+
+            sections.forEach(function (section) {
+                section.classList.remove("active");
+            });
+
+            document.getElementById(target).classList.add("active");
+
+            sideMenu.classList.remove("open");
+            menuTab.querySelector("path").setAttribute("d", "m9 5 7 7-7 7");
+        });
+    });
+
+    document.getElementById("logoutButton").addEventListener("click", function () {
+        sessionStorage.removeItem("teamLoggedIn");
+        sessionStorage.removeItem("farmerLoggedIn");
+        sessionStorage.removeItem("sellerLoggedIn");
+        sessionStorage.removeItem("buyerLoggedIn");
+        window.location.replace("login.html");
+    });
+
+    /* ADD TEAM ACCOUNT FORM */
+    const addTeamForm = document.getElementById("addTeamForm");
+    const teamMemberId = document.getElementById("teamMemberId");
+    const teamContact = document.getElementById("teamContact");
+    const teamEmail = document.getElementById("teamEmail");
+    const teamPassword = document.getElementById("teamPassword");
+    const addTeamMessage = document.getElementById("addTeamMessage");
+
+    function setTeamRule(id, valid, text) {
+        const rule = document.getElementById(id);
+
+        if (valid) {
+            rule.classList.add("valid");
+            rule.classList.remove("invalid");
+            rule.textContent = "✓ " + text;
+        } else {
+            rule.classList.add("invalid");
+            rule.classList.remove("valid");
+            rule.textContent = "○ " + text;
+        }
+    }
+
+    function updateTeamPasswordRules() {
+        const value = teamPassword.value;
+
+        setTeamRule(
+            "teamRuleLength",
+            value.length >= 8,
+            "At least 8 characters"
+        );
+
+        setTeamRule(
+            "teamRuleUpper",
+            /[A-Z]/.test(value),
+            "At least one uppercase letter"
+        );
+
+        setTeamRule(
+            "teamRuleLower",
+            /[a-z]/.test(value),
+            "At least one lowercase letter"
+        );
+
+        setTeamRule(
+            "teamRuleDigit",
+            /\d/.test(value),
+            "At least one digit"
+        );
+
+        setTeamRule(
+            "teamRuleSpecial",
+            /[^A-Za-z0-9\s]/.test(value),
+            "At least one special character"
+        );
+    }
+
+    function showWarning(input, warningId, show) {
+        const warning = document.getElementById(warningId);
+        warning.classList.toggle("show", show);
+        input.classList.toggle("invalid", show);
+    }
+
+    function validateMemberIdLive() {
+        const original = teamMemberId.value;
+        let value = original;
+        let changed = false;
+        let invalidAttempt = false;
+
+        /*
+            Member ID format:
+            - BEFORE @ : alphabets only
+            - AFTER @  : digits only
+            - Exactly one @
+        */
+
+        if (value.includes("@")) {
+            const firstAt = value.indexOf("@");
+
+            // Keep only letters before the first @.
+            const beforeAt = value.slice(0, firstAt);
+            const cleanBefore = beforeAt.replace(/[^A-Za-z]/g, "");
+
+            // Keep only digits after the first @.
+            const afterAt = value.slice(firstAt + 1);
+            const cleanAfter = afterAt.replace(/\D/g, "");
+
+            if (beforeAt !== cleanBefore || afterAt !== cleanAfter) {
+                invalidAttempt = true;
+            }
+
+            value = cleanBefore + "@" + cleanAfter;
+
+            // Remove any additional @ characters as invalid input.
+            if (afterAt.includes("@")) {
+                invalidAttempt = true;
+            }
+        } else {
+            // Before @ is entered, ONLY alphabets are allowed.
+            const clean = value.replace(/[^A-Za-z]/g, "");
+
+            if (clean !== value) {
+                invalidAttempt = true;
+            }
+
+            value = clean;
+        }
+
+        if (value !== original) {
+            teamMemberId.value = value;
+            changed = true;
+        }
+
+        const complete = /^[A-Za-z]+@[0-9]+$/.test(value);
+
+        // Warn immediately only if the user actually entered an invalid character.
+        showWarning(
+            teamMemberId,
+            "teamMemberIdWarning",
+            invalidAttempt
+        );
+
+        document.getElementById("teamMemberIdError").textContent = "";
+
+        return { complete, invalidAttempt, changed };
+    }
+
+    teamMemberId.addEventListener("input", function () {
+        validateMemberIdLive();
+    });
+
+    teamMemberId.addEventListener("blur", function () {
+        const value = teamMemberId.value;
+
+        // Do not warn on an untouched empty field.
+        if (value.length === 0) {
+            showWarning(teamMemberId, "teamMemberIdWarning", false);
+            return;
+        }
+
+        // Once the user leaves the field, the COMPLETE format is required.
+        const complete = /^[A-Za-z]+@[0-9]+$/.test(value);
+
+        showWarning(
+            teamMemberId,
+            "teamMemberIdWarning",
+            !complete
+        );
+    });
+
+    teamContact.addEventListener("input", function () {
+        const original = teamContact.value;
+
+        // Contact number: ONLY digits, maximum 10.
+        const clean = original.replace(/\D/g, "").slice(0, 10);
+
+        const invalidAttempt = clean !== original;
+
+        if (clean !== original) {
+            teamContact.value = clean;
+        }
+
+        // Do not warn just because the user has not finished typing.
+        showWarning(
+            teamContact,
+            "teamContactWarning",
+            invalidAttempt
+        );
+
+        document.getElementById("teamContactError").textContent = "";
+    });
+
+    teamContact.addEventListener("blur", function () {
+        const value = teamContact.value;
+
+        // Empty/untouched field: no warning yet.
+        if (value.length === 0) {
+            showWarning(teamContact, "teamContactWarning", false);
+            return;
+        }
+
+        // Leaving the field requires exactly 10 digits.
+        showWarning(
+            teamContact,
+            "teamContactWarning",
+            !/^\d{10}$/.test(value)
+        );
+    });
+
+    teamEmail.addEventListener("input", function () {
+        const original = teamEmail.value;
+
+        // Spaces are never valid in an email address.
+        const clean = original.replace(/\s/g, "");
+
+        if (clean !== original) {
+            teamEmail.value = clean;
+        }
+
+        // Only show an immediate warning when the user actually enters
+        // something invalid (such as a space). Intermediate email states
+        // like "name@" are allowed while typing.
+        showWarning(
+            teamEmail,
+            "teamEmailWarning",
+            clean !== original
+        );
+
+        document.getElementById("teamEmailError").textContent = "";
+    });
+
+    teamEmail.addEventListener("blur", function () {
+        const value = teamEmail.value.trim();
+
+        // Empty/untouched field: no warning yet.
+        if (value.length === 0) {
+            showWarning(teamEmail, "teamEmailWarning", false);
+            return;
+        }
+
+        // Leaving the field requires a complete email format.
+        showWarning(
+            teamEmail,
+            "teamEmailWarning",
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+        );
+    });
+
+
+    /* PASSWORD SHOW / HIDE */
+    const teamPasswordToggle = document.getElementById("teamPasswordToggle");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    teamPasswordToggle.addEventListener("click", function () {
+        const showing = teamPassword.type === "text";
+
+        if (showing) {
+            // Hide password.
+            teamPassword.type = "password";
+
+            eyeIcon.innerHTML = `
+                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+                <circle cx="12" cy="12" r="2.5"></circle>
+            `;
+
+            teamPasswordToggle.setAttribute("aria-label", "Show password");
+            teamPasswordToggle.setAttribute("title", "Show password");
+        } else {
+            // Show password.
+            teamPassword.type = "text";
+
+            eyeIcon.innerHTML = `
+                <path d="M3 3l18 18"></path>
+                <path d="M10.6 5.1A10.8 10.8 0 0 1 12 5c6 0 9.5 7 9.5 7a17.7 17.7 0 0 1-3.2 4.1"></path>
+                <path d="M6.7 6.7C4.1 8.4 2.5 12 2.5 12s3.5 6 9.5 6a10 10 0 0 0 3.2-.5"></path>
+                <path d="M9.9 9.9a2.5 2.5 0 0 0 3.5 3.5"></path>
+            `;
+
+            teamPasswordToggle.setAttribute("aria-label", "Hide password");
+            teamPasswordToggle.setAttribute("title", "Hide password");
+        }
+    });
+
+    function isTeamPasswordValid() {
+        const value = teamPassword.value;
+
+        return (
+            value.length >= 8 &&
+            /[A-Z]/.test(value) &&
+            /[a-z]/.test(value) &&
+            /\d/.test(value) &&
+            /[^A-Za-z0-9\s]/.test(value)
+        );
+    }
+
+    teamPassword.addEventListener("input", function () {
+        updateTeamPasswordRules();
+
+        // While typing, the checklist itself shows what is missing.
+        // Do not show a red warning merely because the password is incomplete.
+        teamPassword.classList.remove("invalid");
+        document.getElementById("teamPasswordError").textContent = "";
+    });
+
+    teamPassword.addEventListener("blur", function () {
+        const value = teamPassword.value;
+
+        // Empty/untouched field: no warning.
+        if (value.length === 0) {
+            teamPassword.classList.remove("invalid");
+            document.getElementById("teamPasswordError").textContent = "";
+            return;
+        }
+
+        const valid = isTeamPasswordValid();
+
+        teamPassword.classList.toggle("invalid", !valid);
+        document.getElementById("teamPasswordError").textContent =
+            valid ? "" : "Password must meet all the requirements.";
+    });
+
+    addTeamForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const memberId = teamMemberId.value.trim();
+        const contact = teamContact.value.trim();
+        const email = teamEmail.value.trim();
+        const password = teamPassword.value;
+
+        const memberIdError = document.getElementById("teamMemberIdError");
+        const contactError = document.getElementById("teamContactError");
+        const emailError = document.getElementById("teamEmailError");
+        const passwordError = document.getElementById("teamPasswordError");
+
+        memberIdError.textContent = "";
+        contactError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        addTeamMessage.textContent = "";
+        addTeamMessage.className = "add-team-message";
+
+        teamMemberId.classList.remove("invalid");
+        teamContact.classList.remove("invalid");
+        teamEmail.classList.remove("invalid");
+        teamPassword.classList.remove("invalid");
+
+        let valid = true;
+
+        /* Member ID: name@digits */
+        if (!/^[A-Za-z]+@\d+$/.test(memberId)) {
+            memberIdError.textContent = "Member ID must follow name@digits format.";
+            teamMemberId.classList.add("invalid");
+            valid = false;
+        }
+
+        /* Contact number: exactly 10 digits */
+        if (!/^\d{10}$/.test(contact)) {
+            contactError.textContent = "Contact number must contain exactly 10 digits.";
+            teamContact.classList.add("invalid");
+            valid = false;
+        }
+
+        /* Email */
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailError.textContent = "Enter a valid email address.";
+            teamEmail.classList.add("invalid");
+            valid = false;
+        }
+
+        /* Password */
+        const passwordRulesOK =
+            password.length >= 8 &&
+            /[A-Z]/.test(password) &&
+            /[a-z]/.test(password) &&
+            /\d/.test(password) &&
+            /[^A-Za-z0-9\s]/.test(password);
+
+        if (!passwordRulesOK) {
+            passwordError.textContent =
+                "Password must meet all the requirements.";
+            teamPassword.classList.add("invalid");
+            valid = false;
+        }
+
+        if (!valid) {
+            updateTeamPasswordRules();
+            return;
+        }
+
+        /*
+            Front-end demo:
+            The account is accepted here. A real application should
+            send these values to a secure backend instead of storing
+            passwords in browser storage.
+        */
+        addTeamMessage.textContent = "Team account added successfully.";
+        addTeamMessage.classList.add("success");
+
+        addTeamForm.reset();
+        updateTeamPasswordRules();
+    });
+
+    updateTeamPasswordRules();
+
+
+
+    /* FULL NOTE POPUP */
+    const noteOverlay = document.getElementById("noteOverlay");
+    const noteTitle = document.getElementById("noteTitle");
+    const noteContent = document.getElementById("noteContent");
+    const noteClose = document.getElementById("noteClose");
+
+    function closeNote() {
+        noteOverlay.classList.remove("open");
+    }
+
+    noteClose.addEventListener("click", closeNote);
+
+    noteOverlay.addEventListener("click", function (event) {
+        if (event.target === noteOverlay) {
+            closeNote();
+        }
+    });
+
+
+    const taskList = document.getElementById("taskList");
+
+    function openTaskNote(event) {
+        if (event.target.closest(".task-complete")) return;
+
+        const card = event.currentTarget;
+        const nameElement = card.querySelector(".task-name");
+        const descriptionElement = card.querySelector(".task-description");
+
+        const name = card.dataset.taskName ||
+                     (nameElement ? nameElement.textContent.trim() : "NOTE");
+
+        const description = card.dataset.taskDescription ||
+                            (descriptionElement ? descriptionElement.textContent.trim() : "");
+
+        if (!description) return;
+
+        noteTitle.textContent = name;
+        noteContent.textContent = description;
+        noteOverlay.classList.remove("open");
+        void noteOverlay.offsetWidth;
+        noteOverlay.classList.add("open");
+    }
+
+    function activateTaskCard(card) {
+        card.addEventListener("click", openTaskNote);
+    }
+
+    // Completion handler for the existing PEL task.
+    const pelCompleteButton = document.getElementById("pelCompleteButton");
+    if (pelCompleteButton) {
+        pelCompleteButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const taskCard = this.closest(".task-card");
+            if (taskCard) {
+                taskCard.remove();
+            }
+        });
+    }
+
+    // Activate the existing PEL project card.
+    document.querySelectorAll(".task-card").forEach(activateTaskCard);
+
+    const addTaskButton = document.getElementById("addTaskButton");
+    const taskOverlay = document.getElementById("taskOverlay");
+    const taskCancel = document.getElementById("taskCancel");
+    const newTaskForm = document.getElementById("newTaskForm");
+    const taskName = document.getElementById("taskName");
+    const taskDeadline = document.getElementById("taskDeadline");
+    const taskDescription = document.getElementById("taskDescription");
+    const taskCharCount = document.getElementById("taskCharCount");
+    const taskError = document.getElementById("taskError");
+
+    taskDeadline.addEventListener("click", function () {
+        if (typeof taskDeadline.showPicker === "function") {
+            taskDeadline.showPicker();
+        }
+    });
+
+    taskDeadline.addEventListener("keydown", function (e) {
+        e.preventDefault();
+    });
+
+    taskDescription.addEventListener("input", function () {
+        taskCharCount.textContent = taskDescription.value.length;
+    });
+
+    function openTaskForm() {
+        taskOverlay.classList.add("open");
+        taskError.classList.remove("show");
+        taskName.focus();
+    }
+
+    function closeTaskForm() {
+        taskOverlay.classList.remove("open");
+        newTaskForm.reset();
+        taskCharCount.textContent = "0";
+        taskError.classList.remove("show");
+    }
+
+    addTaskButton.addEventListener("click", openTaskForm);
+    taskCancel.addEventListener("click", closeTaskForm);
+
+    taskOverlay.addEventListener("click", function (e) {
+        if (e.target === taskOverlay) closeTaskForm();
+    });
+
+    newTaskForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = taskName.value.trim();
+        const deadline = taskDeadline.value;
+        const description = taskDescription.value.trim();
+
+        if (!name) {
+            taskError.textContent = "Please enter a task name.";
+            taskError.classList.add("show");
+            taskName.focus();
+            return;
+        }
+
+        if (!deadline) {
+            taskError.textContent = "Please select a deadline from the calendar.";
+            taskError.classList.add("show");
+            taskDeadline.focus();
+            return;
+        }
+
+        if (description.length > 100) {
+            taskError.textContent = "Description cannot exceed 100 characters.";
+            taskError.classList.add("show");
+            taskDescription.focus();
+            return;
+        }
+
+        const p = deadline.split("-");
+
+        const card = document.createElement("div");
+        card.className = "task-card";
+        card.dataset.taskName = name;
+        card.dataset.taskDescription = description || "No description.";
+
+        const n = document.createElement("div");
+        n.className = "task-name";
+        n.textContent = name;
+
+        const d = document.createElement("div");
+        d.className = "task-deadline";
+        d.textContent = "deadline: " + p[2] + "/" + p[1] + "/" + p[0];
+
+        const desc = document.createElement("div");
+        desc.className = "task-description";
+        desc.textContent = description || "No description.";
+
+        if (description) {
+            desc.classList.add("has-note");
+        }
+
+        const completeButton = document.createElement("button");
+        completeButton.type = "button";
+        completeButton.className = "task-complete";
+        completeButton.textContent = "TASK COMPLETED";
+
+        // This handler belongs to THIS task's button, so every new task
+        // can be completed independently.
+        completeButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const taskCard = this.closest(".task-card");
+            if (taskCard) {
+                taskCard.remove();
+            }
+        });
+
+        card.append(n, d, desc, completeButton);
+        taskList.appendChild(card);
+
+        // Attach the two behaviors directly to this new card/button.
+        activateTaskCard(card);
+
+        closeTaskForm();
+    });
+
+</script>
+</body>
+</html>
